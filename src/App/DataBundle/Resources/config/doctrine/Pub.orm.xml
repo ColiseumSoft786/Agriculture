@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="App\DataBundle\Entity\Pub" table="pub">
+    <indexes>
+      <index name="catpub_subcatpub_fk_idx" columns="Pub"/>
+    </indexes>
+    <id name="id" type="integer" column="Id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="name" type="string" column="Name" length="45" nullable="true"/>
+    <field name="details" type="text" column="Details" nullable="true"/>
+    <field name="document" type="string" column="Document" length="500" nullable="true"/>
+    <many-to-one field="pub" target-entity="Publications">
+      <join-columns>
+        <join-column name="Pub" referenced-column-name="Id"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

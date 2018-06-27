@@ -1,0 +1,37 @@
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span></button>
+    <h4 class="modal-title">Edit Daily Rates</h4>
+</div>
+<div class="modal-body">
+    <form action="{{ path('admin_rates_rate_edit') }}" method="POST">
+        <input type="hidden" value="{{ rate.id }}" name="id">
+        <label for="">Select Vegetable</label>
+        <select name="veg" id="" class="form-control">
+            <option value="">- Select Vegetable -</option>
+            {% for item in veg %}
+                {% if rate.item.id == item.id %}
+                    <option value="{{ item.id }}" selected="selected">{{ item.name }}</option>
+                    {% else %}
+                        <option value="{{ item.id }}">{{ item.name }}</option>
+                {% endif %}
+            {% endfor %}
+        </select>
+        <label for="">Select City</label>
+        <select name="city" id="" class="form-control">
+            <option value="">- Select City -</option>
+            {% for item in city %}
+                {% if rate.city.id == item.id %}
+                    <option value="{{ item.id }}" selected="selected">{{ item.name }}</option>
+                    {% else %}
+                        <option value="{{ item.id }}">{{ item.name }}</option>
+                {% endif %}
+            {% endfor %}
+        </select>
+        <label for="">Select Date</label>
+        <input type="date" class="form-control" name="date" value="{{ rate.date|date('Y-m-d') }}">
+        <label for="">Select Rate</label>
+        <input type="text" class="form-control" name="rate" value="{{ rate.rate }}">
+        <input type="submit" class="btn btn-warning pull-right" style="margin-top: 10px">
+    </form>
+</div>

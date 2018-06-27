@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="App\DataBundle\Entity\Answer" table="answer">
+    <indexes>
+      <index name="fk_question_answer_idx" columns="Question"/>
+    </indexes>
+    <id name="id" type="integer" column="Id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="answer" type="text" column="Answer" nullable="true"/>
+    <field name="name" type="string" column="Name" length="45" nullable="true"/>
+    <field name="date" type="datetime" column="Date" nullable="true"/>
+    <field name="approved" type="integer" column="Approved" nullable="true"/>
+    <many-to-one field="question" target-entity="Question">
+      <join-columns>
+        <join-column name="Question" referenced-column-name="Id"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

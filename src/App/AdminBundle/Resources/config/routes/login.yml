@@ -1,0 +1,12 @@
+adminbundle_login:
+    path:     /Login
+    defaults: { _controller: AdminBundle:Login:login }
+adminbundle_users:
+    path:     /Users
+    defaults: { _controller: AdminBundle:Login:listusers }
+adminbundle_users_new:
+    path:     /Users/Register
+    defaults: { _controller: AdminBundle:Login:register }
+adminbundle_users_logout:
+    path:     /Logout
+    defaults: { _controller: AdminBundle:Login:logout }

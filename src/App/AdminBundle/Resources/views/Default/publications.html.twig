@@ -1,0 +1,14 @@
+{% for item in data %}
+    <li class="treeview">
+        <a href="#"><i class="fa fa-circle-o"></i> {{ item[0].name }} <span class="badge badge-success">{{ item[1] }}</span>
+            <span class="pull-right-container">
+                  <i class="fa fa-angle-left pull-right"></i>
+                </span>
+        </a>
+        <ul class="treeview-menu">
+            <li><a href="{{ path('admin_publication_new',{name:item[0].name,id:item[0].id}) }}"><i class="fa fa-plus-circle"></i> add new {{ item[0].name }}</a></li>
+            <li><a href="{{ path('admin_publication_show',{name:item[0].name,id:item[0].id}) }}"><i class="fa fa-circle-o"></i> View | Edit {{ item[0].name }}</a></li>
+
+        </ul>
+    </li>
+{% endfor %}

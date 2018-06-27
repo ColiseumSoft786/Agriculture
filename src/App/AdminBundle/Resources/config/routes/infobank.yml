@@ -1,0 +1,21 @@
+admin_infobank_new:
+    path:     /{name}/Create/{id}
+    defaults: { _controller: AdminBundle:Infobank:new }
+admin_infobank_show:
+    path:     /{name}/Show/{id}
+    defaults: { _controller: AdminBundle:Infobank:show }
+admin_infobank_delete:
+    path:     /pubdelete/{id}
+    defaults: { _controller: AdminBundle:Infobank:delete }
+admin_infobank_edit:
+    path:     /{id}/Edit/
+    defaults: { _controller: AdminBundle:Infobank:edit }
+
+
+
+admin_infobank_name_edit:
+    path:     /PubEdit/{id}
+    defaults: { _controller: AdminBundle:Infobank:editpubname }
+admin_infobank_name_delete:
+    path:     /PubDelete/{id}
+    defaults: { _controller: AdminBundle:Infobank:deletepubmain }

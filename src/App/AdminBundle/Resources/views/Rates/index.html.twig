@@ -1,0 +1,267 @@
+{% extends "::admin.html.twig" %}
+
+{% block title %} | Daily Rates{% endblock %}
+
+{% block body %}
+    <section class="content-header">
+        <h1>
+            Daily Rates
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li>Daily Rates</li>
+        </ol>
+    </section>
+
+    <section class="content">
+        <!-- /.row -->
+
+        <!-- Main row -->
+        <div class="row">
+            <div class="col-md-12">
+                <div class="callout callout-danger">
+                    <h4>Important Information</h4>
+                    <p>If you delete Vegetable OR City then daily rates of that vegetable or city will automatically delete. </p>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="box box-warning">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">Vegetables {#<a style="margin-left: 10px" href=""><i class="fa fa-plus-circle"></i></a>#}</h3>
+                        <div class="box-tools pull-right">
+                            <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                            </button>
+                            {#<button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>#}
+                        </div>
+                    </div>
+                    <!-- /.box-header -->
+                    <div class="box-body">
+                            <form action="{{ path('admin_rates_new_veg') }}" method="POST">
+                                <div class="input-group">
+                                    <input type="text" name="name" class="form-control" placeholder="Enter vegetable">
+                                    <span class="input-group-btn">
+                                    <input class="btn btn-info" type="submit" value="+">
+                                    </span>
+                                </div>
+                            </form>
+
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Name</th>
+                                    <th></th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {% set count = 1 %}
+                                {% for item in veg %}
+                                    <tr>
+                                        <td style="width: 1%;white-space: nowrap">{{ count }}</td>
+                                        <td>{{ item.name }}</td>
+                                        <td style="width: 1%;white-space: nowrap"><a href="javascript:void(0)" onclick="getedit({{ item.id }},'veg')"><span class="fa fa-edit"></span></a> <a href="{{ path('admin_rates_veg_detete',{id:item.id}) }}"><span class="fa fa-cut"></span></a></td>
+                                    </tr>
+                                    {% set count = count + 1 %}
+                                {% endfor %}
+                                </tbody>
+                            </table>
+
+                        </div>
+                        <!-- /.table-responsive -->
+                    </div>
+                    <!-- /.box-body -->
+
+                    <!-- /.box-footer -->
+                </div>
+                <!-- /.box -->
+            </div>
+            <div class="col-md-6">
+                <div class="box box-primary collapsed-box">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">Create a daily rate</h3>
+                        <div class="box-tools pull-right">
+                            <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i>
+                            </button>
+                            {#<button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>#}
+                        </div>
+                    </div>
+                    <!-- /.box-header -->
+                    <div class="box-body">
+                        <form action="{{ path('admin_rates_new') }}" method="POST">
+                            <div class="col-xs-6">
+                                <label for="">Select Vegetable</label>
+                                <select name="veg" id="" class="form-control">
+                                    <option value="">- Select Vegetable -</option>
+                                    {% for item in veg %}
+                                        <option value="{{ item.id }}">{{ item.name }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                            <div class="col-xs-6">
+                                <label for="">Select City</label>
+                                <select name="city" id="" class="form-control">
+                                    <option value="">- Select City -</option>
+                                    {% for item in city %}
+                                        <option value="{{ item.id }}">{{ item.name }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                            <div class="col-xs-6">
+                                <label for="">Select Date</label>
+                                <input type="date" name="date" class="form-control" placeholder="Enter Date">
+                            </div>
+                            <div class="col-xs-6">
+                                <label for="">Select Price</label>
+                                <input type="text" name="rate" placeholder="Enter Price" class="form-control">
+                            </div>
+                            <div class="col-xs-12">
+                                <input type="submit" class="btn btn-success pull-right" style="margin-top: 10px">
+                            </div>
+                        </form>
+                        <!-- /.table-responsive -->
+                    </div>
+                    <!-- /.box-body -->
+
+                    <!-- /.box-footer -->
+                </div>
+                <div class="box box-warning">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">Daily Rate - Top 50</h3>
+                        <div class="box-tools pull-right">
+                            <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                            </button>
+                            {#<button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>#}
+                        </div>
+                    </div>
+                    <!-- /.box-header -->
+                    <div class="box-body">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Vegetable</th>
+                                    <th>City</th>
+                                    <th>Date</th>
+                                    <th>Rate</th>
+                                    <th></th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {% set count = 1 %}
+                                {% for item in rates %}
+                                    <tr>
+                                        <td style="width: 1%;white-space: nowrap">{{ count }}</td>
+                                        <td>{{ item.item.name }}</td>
+                                        <td>{{ item.city.name }}</td>
+                                        <td>{{ item.date|date('d-m-Y') }}</td>
+                                        <td>{{ item.rate }}</td>
+                                        <td style="width: 1%;white-space: nowrap"><a href="javascript:void(0)" onclick="getedit({{ item.id }},'rate')"><span class="fa fa-edit"></span></a> <a href="{{ path('admin_rates_rate_detete',{id:item.id}) }}"><span class="fa fa-cut"></span></a></td>
+                                    </tr>
+                                    {% set count = count + 1 %}
+                                {% endfor %}
+                                </tbody>
+                            </table>
+
+                        </div>
+                        <!-- /.table-responsive -->
+                    </div>
+                    <!-- /.box-body -->
+
+                    <!-- /.box-footer -->
+                </div>
+                <!-- /.box -->
+            </div>
+            <div class="col-md-3">
+                <div class="box box-warning">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">Cities  {#<a style="margin-left: 10px" href=""><i class="fa fa-plus-circle"></i></a>#}</h3>
+                        <div class="box-tools pull-right">
+                            <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                            </button>
+                            {#<button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>#}
+                        </div>
+                    </div>
+                    <!-- /.box-header -->
+                    <div class="box-body">
+                        <form action="{{ path('admin_rates_new_city') }}" method="POST">
+                            <div class="input-group">
+                                <input type="text" name="name" class="form-control" placeholder="Enter city">
+                                <span class="input-group-btn">
+                                    <input class="btn btn-info" type="submit" value="+">
+                                    </span>
+                            </div>
+                        </form>
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Name</th>
+                                    <th></th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {% set count = 1 %}
+                                {% for item in city %}
+                                    <tr>
+                                        <td style="width: 1%;white-space: nowrap">{{ count }}</td>
+                                        <td>{{ item.name }}</td>
+                                        <td style="width: 1%;white-space: nowrap"><a href="javascript:void(0)" onclick="getedit({{ item.id }},'city')"><span class="fa fa-edit"></span></a> <a href="{{ path('admin_rates_city_detete',{id:item.id}) }}"><span class="fa fa-cut"></span></a></td>
+                                    </tr>
+                                    {% set count = count + 1 %}
+                                {% endfor %}
+                                </tbody>
+                            </table>
+
+                        </div>
+                        <!-- /.table-responsive -->
+                    </div>
+                    <!-- /.box-body -->
+
+                    <!-- /.box-footer -->
+                </div>
+                <!-- /.box -->
+            </div>
+            <!-- /.col -->
+
+
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
+    </section>
+
+    <div class="modal modal-default fade" id="modal-success">
+        <div class="modal-dialog">
+            <div class="modal-content" id="data_model">
+
+            </div>
+            <div class="modal-content" id="data_model_load" style="text-align: center" >
+                <div class="modal-body">
+                    <img src="{{ asset('bundles/load.gif') }}" alt="">
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+
+    <script>
+        function getedit(id,ch){
+            $('#data_model_load').show();
+            $('#data_model').hide();
+            $('#modal-success').modal('show');
+            $.ajax({
+                url: '{{ path('admin_rates_getedit') }}?ch='+ch+'&id='+id,
+                type: 'POST',
+                success: function(result){
+                    $('#data_model_load').hide();
+                    $('#data_model').html(result);
+                    $('#data_model').show();
+                }
+            })
+        }
+    </script>
+{% endblock %}

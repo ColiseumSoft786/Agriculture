@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="App\DataBundle\Entity\News" table="news">
+    <id name="id" type="integer" column="Id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="image" type="string" column="Image" length="200" nullable="true"/>
+    <field name="details" type="text" column="Details" nullable="true"/>
+    <field name="name" type="string" column="Name" length="200" nullable="true"/>
+  </entity>
+</doctrine-mapping>

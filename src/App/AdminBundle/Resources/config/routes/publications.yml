@@ -1,0 +1,21 @@
+admin_publication_new:
+    path:     /{name}/Create/{id}
+    defaults: { _controller: AdminBundle:Publication:new }
+admin_publication_show:
+    path:     /{name}/Show/{id}
+    defaults: { _controller: AdminBundle:Publication:show }
+admin_publication_delete:
+    path:     /pubdelete/{id}
+    defaults: { _controller: AdminBundle:Publication:delete }
+admin_publication_edit:
+    path:     /{id}/Edit/
+    defaults: { _controller: AdminBundle:Publication:edit }
+
+
+
+admin_publication_name_edit:
+    path:     /PubEdit/{id}
+    defaults: { _controller: AdminBundle:Publication:editpubname }
+admin_publication_name_delete:
+    path:     /PubDelete/{id}
+    defaults: { _controller: AdminBundle:Publication:deletepubmain }

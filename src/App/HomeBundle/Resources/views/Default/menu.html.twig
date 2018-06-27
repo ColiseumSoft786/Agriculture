@@ -1,0 +1,21 @@
+<ul class="nav navbar-nav navbar-right">
+    <li ><a  href="{{ path('home_homepage') }}">Home</a></li>
+    <li ><a  href="{{ path('News_index') }}">Latest News</a></li>
+    <li ><a  href="{{ path('Panel_index') }}">Discussion Panel</a></li>
+    <li ><a  href="{{ path('home_homepage_infos_chart') }}">Price Chart</a></li>
+    <li class="dropdown"><a class="dropdown-toggle" href="#" data-toggle="dropdown">Publications</a>
+        <ul class="dropdown-menu">
+            {% for item in pubs %}
+                <li><a href="{{ path('home_homepage_pubs',{id:item.id,name:item.name}) }}">{{ item.name }}</a></li>
+            {% endfor %}
+        </ul>
+    </li>
+    <li class="dropdown"><a class="dropdown-toggle" href="#" data-toggle="dropdown">Info Bank</a>
+        <ul class="dropdown-menu">
+            {% for item in info %}
+                <li><a href="{{ path('home_homepage_infos',{id:item.id,name:item.name}) }}">{{ item.name }}</a></li>
+            {% endfor %}
+
+        </ul>
+    </li>
+</ul>

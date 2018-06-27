@@ -1,0 +1,12 @@
+admin_link_index:
+    path:     /
+    defaults: { _controller: AdminBundle:Link:index }
+admin_link_new:
+    path:     /New
+    defaults: { _controller: AdminBundle:Link:new }
+admin_link_edit:
+    path:     /Edit/{id}
+    defaults: { _controller: AdminBundle:Link:edit }
+admin_link_delete:
+    path:     /Delete/{id}
+    defaults: { _controller: AdminBundle:Link:delete }

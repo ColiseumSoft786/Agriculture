@@ -1,0 +1,104 @@
+{% extends "::admin.html.twig" %}
+
+{% block title %} | Users{% endblock %}
+
+{% block body %}
+    <section class="content-header">
+        <h1>
+            List of Users
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li>Users</li>
+        </ol>
+    </section>
+
+    <section class="content">
+        <!-- /.row -->
+
+        <!-- Main row -->
+        <div class="row">
+            <!-- Left col -->
+            <div class="col-md-offset-1 col-md-10">
+                <!-- /.row -->
+                <div class="box box-info collapsed-box">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">Add New User</h3>
+
+                        <div class="box-tools pull-right">
+                            <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                            </button>
+                            {#<button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>#}
+                        </div>
+                    </div>
+                    <!-- /.box-header -->
+                    <div class="box-body">
+                        <div class="col-md-offset-4 col-md-4">
+                            <form action="{{ path('adminbundle_users_new') }}" method="post">
+                                <label for="">Username</label>
+                                <input type="text" class="form-control" name="username">
+                                <label for="">Password</label>
+                                <input type="password" class="form-control" name="password">
+                                <input type="submit" value="Add User" class="btn btn-info pull-right" style="margin-top: 10px">
+                            </form>
+                        </div>
+                    </div>
+                    <!-- /.box-body -->
+
+                    <!-- /.box-footer -->
+                </div>
+                <!-- TABLE: LATEST ORDERS -->
+                <div class="box box-info">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">List of Users</h3>
+                        <div class="box-tools pull-right">
+                            <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                            </button>
+                            {#<button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>#}
+                        </div>
+                    </div>
+                    <!-- /.box-header -->
+                    <div class="box-body">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Name</th>
+                                    <th>Action</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {% set count = 1 %}
+                                {% for item in user %}
+                                    <tr>
+                                        <td>{{ count }}</td>
+                                        <td>{{ item.username }}</td>
+                                        <td>
+                                            <h4 style="margin: 0">
+                                                <a href="{{ path('admin_infobank_delete',{id:item.id}) }}" style="margin-left: 10px;color: orangered"><i class="fa fa-cut"></i></a>
+                                            </h4>
+                                        </td>
+                                    </tr>
+                                    {% set count = count + 1 %}
+                                {% endfor %}
+                                </tbody>
+                            </table>
+
+                        </div>
+                        <!-- /.table-responsive -->
+                    </div>
+                    <!-- /.box-body -->
+
+                    <!-- /.box-footer -->
+                </div>
+                <!-- /.box -->
+            </div>
+            <!-- /.col -->
+
+
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
+    </section>
+{% endblock %}

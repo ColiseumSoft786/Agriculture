@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="App\DataBundle\Entity\Rates" table="rates">
+    <indexes>
+      <index name="rate_city_fk_idx" columns="City"/>
+      <index name="rate_item_fk_idx" columns="Item"/>
+    </indexes>
+    <id name="id" type="integer" column="Id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="rate" type="integer" column="Rate" nullable="true"/>
+    <field name="date" type="datetime" column="Date" nullable="true"/>
+    <many-to-one field="item" target-entity="Item">
+      <join-columns>
+        <join-column name="Item" referenced-column-name="Id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="city" target-entity="City">
+      <join-columns>
+        <join-column name="City" referenced-column-name="Id"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

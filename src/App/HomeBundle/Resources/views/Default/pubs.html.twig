@@ -1,0 +1,42 @@
+{% extends "::single.html.twig" %}
+
+{% block title %}{{ pub.name }}{% endblock %}
+
+{% block body %}
+
+    <section class="module-small">
+        <div class="container">
+            <div class="row">
+                <table class="table table-bordered">
+                    <tr>
+                        <th style="text-align: center">Name</th>
+                        <th style="text-align: center">Important Information</th>
+                        <th style="text-align: center">Document</th>
+                    </tr>
+                    {% if pubs|length != 0 %}
+                        {% for item in pubs %}
+                            <tr>
+                                <td style="vertical-align: middle"> {{ item.name }}</td>
+                                <td style="vertical-align: middle">{{ item.details|raw }}</td>
+                                <td style="width: 15%">
+                                    {% if item.document == null %}
+                                        <a href="javascript:void(0)" class="btn btn-border-d btn-circle btn-sm btn-block">No File</a>
+                                    {% else %}
+                                        <a href="{{ asset(item.document) }}" class="btn btn-d btn-circle btn-sm btn-block">Download</a>
+                                    {% endif %}
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    {% else %}
+                    <tr>
+                        <td colspan="3" style="text-align: center">No Data Found</td>
+                    </tr>
+                    {% endif %}
+
+
+                </table>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}

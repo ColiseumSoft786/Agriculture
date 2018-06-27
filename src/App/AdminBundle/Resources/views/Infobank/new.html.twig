@@ -1,0 +1,107 @@
+{% extends "::admin.html.twig" %}
+
+{% block title %} | {{ info.name }}{% endblock %}
+
+{% block body %}
+    <section class="content-header">
+        <h1>
+            Create New {{ info.name }}
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li>{{ info.name }}</li>
+            <li class="active">Create</li>
+        </ol>
+    </section>
+
+    <section class="content">
+        <!-- /.row -->
+
+        <!-- Main row -->
+        <div class="row">
+            <!-- Left col -->
+            <div class="col-md-offset-1 col-md-10">
+                <!-- /.row -->
+
+                <!-- TABLE: LATEST ORDERS -->
+                <div class="box box-info">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">Create {{ info.name }}</h3>
+
+                        <div class="box-tools pull-right">
+                            <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                            </button>
+                            {#<button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>#}
+                        </div>
+                    </div>
+                    <!-- /.box-header -->
+                    <div class="box-body">
+                        <div class="table-responsive">
+                            <form id="infocreateform" action="" method="post">
+                                <div class="col-sm-6">
+                                    <label for="" class="label label-info">Mandi <span class="text-danger">*</span></label>
+                                    <input type="text" name="mandi" id="mandi" class="form-control" placeholder="Enter Mandi Name">
+                                </div>
+                                <div class="col-sm-6">
+                                    <label for="" class="label label-info">Agent <span class="text-danger">*</span></label>
+                                    <input type="text" placeholder="Enter Agent Name" name="agent" id="agent" class="form-control">
+                                </div>
+                                <div class="col-sm-6">
+                                    <label for="" class="label label-info">Company <span class="text-danger">*</span></label>
+                                    <input type="text" placeholder="Enter Company" name="company" id="company" class="form-control">
+                                </div>
+                                <div class="col-sm-6">
+                                    <label for="" class="label label-info">Phone <span class="text-danger">*</span></label>
+                                    <input type="text" placeholder="Enter Phone" name="phone" id="phone" class="form-control">
+                                </div>
+                                <div class="col-sm-6">
+                                    <label for="" class="label label-info">Commodities Traded <span class="text-danger">*</span></label>
+                                    <input type="text" placeholder="Enter Commodities Traded<" name="traded" id="traded" class="form-control">
+                                </div>
+                                <div class="col-sm-12">
+                                    <label for="" class="label label-info">More Information <span class="text-danger">*</span></label>
+                                    <textarea name="details" id="details" class="form-control" rows="10" placeholder="Enter More Information about {{ info.name }}"></textarea>
+                                    <input style="margin-top: 10px" type="submit" class="btn btn-sm btn-info pull-right">
+                                </div>
+                            </form>
+                            <script>
+                                $('#infocreateform').submit(function (e) {
+                                    if($('#mandi').val() == ""){
+                                        alert('Name is empty');
+                                        e.preventDefault();
+                                    }else if($('#details').val() == ""){
+                                        alert('Details is empty');
+                                        e.preventDefault();
+                                    }else if($('#agent').val() == ""){
+                                        alert('Details is empty');
+                                        e.preventDefault();
+                                    }else if($('#company').val() == ""){
+                                        alert('Details is empty');
+                                        e.preventDefault();
+                                    }else if($('#phone').val() == ""){
+                                        alert('Details is empty');
+                                        e.preventDefault();
+                                    }else if($('#traded').val() == ""){
+                                        alert('Details is empty');
+                                        e.preventDefault();
+                                    }
+                                })
+                            </script>
+
+                        </div>
+                        <!-- /.table-responsive -->
+                    </div>
+                    <!-- /.box-body -->
+
+                    <!-- /.box-footer -->
+                </div>
+                <!-- /.box -->
+            </div>
+            <!-- /.col -->
+
+
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
+    </section>
+{% endblock %}

@@ -1,0 +1,12 @@
+admin_slider_index:
+    path:     /
+    defaults: { _controller: AdminBundle:Slider:index }
+admin_slider_new:
+    path:     /New
+    defaults: { _controller: AdminBundle:Slider:new }
+admin_slider_edit:
+    path:     /Edit/{id}
+    defaults: { _controller: AdminBundle:Slider:edit }
+admin_slider_delete:
+    path:     /Delete/{id}
+    defaults: { _controller: AdminBundle:Slider:delete }

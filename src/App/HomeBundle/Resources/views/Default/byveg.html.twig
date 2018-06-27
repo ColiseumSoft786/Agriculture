@@ -1,0 +1,85 @@
+{% extends"::single.html.twig" %}
+{% block stylesheets %}
+    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/table/') }}vendor/animate/animate.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/table/') }}vendor/select2/select2.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/table/') }}vendor/perfect-scrollbar/perfect-scrollbar.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/table/') }}css/util.css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/table/') }}css/main.css">
+{% endblock %}
+{% block title %}Vegetable: {{ veg.name }}{% endblock %}
+{% block body %}
+<section class="module-small">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <a href="{{ path('home_homepage_infos_chart') }}" class="btn btn-d btn-circle">View Charts</a>
+                <div class="table100 ver2 m-b-110">
+                    <div class="table100-head">
+                        <table>
+                            <thead>
+                            <tr class="row100 head">
+                                <th class="cell100 column1" style="white-space: nowrap;width: 1%">#</th>
+                                <th class="cell100 column2">City Name</th>
+                                <th class="cell100 column3" style="text-align: center">Min</th>
+                                <th class="cell100 column4" style="text-align: center">Max</th>
+                                <th class="cell100 column5" style="text-align: center">AVG</th>
+                            </tr>
+                            </thead>
+                        </table>
+                    </div>
+
+                    <div class="table100-body js-pscroll" style="max-height: none">
+                        <table>
+                            <tbody>
+                            {% set count = 1 %}
+                            {% for item in city %}
+                                <tr class="row100 body">
+                                    <td class="cell100 column1" style="white-space: nowrap;width: 1%">{{ count }}</td>
+                                    <td class="cell100 column2"><a href="{{ path('home_homepage_infos_bycity',{id:item.id}) }}">{{ item.name }}</a></td>
+                                    <td class="cell100 column3">{% render(controller('HomeBundle:Default:detailsmax',{veg:veg.id,city:item.id}))%}</td>
+                                    <td class="cell100 column4">{% render(controller('HomeBundle:Default:detailsmin',{veg:veg.id,city:item.id}))%}</td>
+                                    <td class="cell100 column5">{% render(controller('HomeBundle:Default:details',{veg:veg.id,city:item.id}))%}</td>
+                                </tr>
+                                {% set count = count + 1 %}
+                            {% endfor %}
+
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+
+
+
+        </div>
+    </div>
+</section>
+
+
+{% endblock %}
+{% block script %}
+    <script src="{{ asset('bundles/table/') }}vendor/bootstrap/js/popper.js"></script>
+    <script src="{{ asset('bundles/table/') }}vendor/bootstrap/js/bootstrap.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="{{ asset('bundles/table/') }}vendor/select2/select2.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="{{ asset('bundles/table/') }}vendor/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+    <script>
+        $('.js-pscroll').each(function(){
+            var ps = new PerfectScrollbar(this);
+
+            $(window).on('resize', function(){
+                ps.update();
+            })
+        });
+
+
+    </script>
+    <!--===============================================================================================-->
+    <script src="{{ asset('bundles/table/') }}js/main.js"></script>
+{% endblock %}

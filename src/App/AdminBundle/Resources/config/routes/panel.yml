@@ -1,0 +1,9 @@
+panel_index:
+    path:     /Questions
+    defaults: { _controller: AdminBundle:Panel:index }
+panel_index_change:
+    path:     /Questions/Change/{id}
+    defaults: { _controller: AdminBundle:Panel:change }
+panel_index_delete:
+    path:     /Questions/Delete/{id}
+    defaults: { _controller: AdminBundle:Panel:delete }

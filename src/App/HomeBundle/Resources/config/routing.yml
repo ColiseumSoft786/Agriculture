@@ -1,0 +1,38 @@
+home_homepage:
+    path:     /
+    defaults: { _controller: HomeBundle:Default:index }
+home_homepage_pubs:
+    path:     /Publication/{name}/{id}
+    defaults: { _controller: HomeBundle:Default:singlepub }
+home_homepage_infos:
+    path:     /InfoBank/{name}/{id}
+    defaults: { _controller: HomeBundle:Default:singleinfo }
+home_homepage_infos_details:
+    path:     /InfoBank/{id}
+    defaults: { _controller: HomeBundle:Default:infodetails }
+home_homepage_infos_chart:
+    path:     /Chart
+    defaults: { _controller: HomeBundle:Default:chart }
+home_homepage_infos_byveg:
+    path:     /Details/Vegetable/{id}
+    defaults: { _controller: HomeBundle:Default:byveg }
+home_homepage_infos_bycity:
+    path:     /Details/City/{id}
+    defaults: { _controller: HomeBundle:Default:bycity }
+
+News_index:
+    path:     /News
+    defaults: { _controller: HomeBundle:News:index }
+News_single:
+    path:     /News/{id}
+    defaults: { _controller: HomeBundle:News:single }
+
+Panel_index:
+    path:     /Discussions
+    defaults: { _controller: HomeBundle:Panel:index }
+Panel_create:
+    path:     /Discussions/Create
+    defaults: { _controller: HomeBundle:Panel:create }
+Panel_answers:
+    path:     /Discussions/{q}/Ongoing
+    defaults: { _controller: HomeBundle:Panel:answers }

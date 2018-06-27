@@ -1,0 +1,36 @@
+admin_homepage:
+    path:     /
+    defaults: { _controller: AdminBundle:Default:index }
+admin_homepage_addpub:
+    path:     /addnewpub
+    defaults: { _controller: AdminBundle:Default:addpub }
+admin_homepage_addinfo:
+    path:     /addnewinfo
+    defaults: { _controller: AdminBundle:Default:addinfo }
+
+admin_publication:
+    resource: "@AdminBundle/Resources/config/routes/publications.yml"
+    prefix:   /Publication
+admin_infobank:
+    resource: "@AdminBundle/Resources/config/routes/infobank.yml"
+    prefix:   /InfoBank
+admin_login:
+    resource: "@AdminBundle/Resources/config/routes/login.yml"
+    prefix:   /Account
+admin_News:
+    resource: "@AdminBundle/Resources/config/routes/news.yml"
+    prefix:   /News
+admin_Panel:
+    resource: "@AdminBundle/Resources/config/routes/panel.yml"
+    prefix:   /Panel
+admin_rates:
+    resource: "@AdminBundle/Resources/config/routes/rates.yml"
+    prefix:   /DailyRates
+admin_slider:
+    resource: "@AdminBundle/Resources/config/routes/slider.yml"
+    prefix:   /Slider
+admin_link:
+    resource: "@AdminBundle/Resources/config/routes/link.yml"
+    prefix:   /Link
+
+

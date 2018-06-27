@@ -1,0 +1,35 @@
+admin_rates_index:
+    path:     /
+    defaults: { _controller: AdminBundle:Rates:index }
+admin_rates_new:
+    path:     /new
+    defaults: { _controller: AdminBundle:Rates:new }
+admin_rates_getedit:
+    path:     /getedit
+    defaults: { _controller: AdminBundle:Rates:getedit }
+
+admin_rates_new_veg:
+    path:     /NewItem
+    defaults: { _controller: AdminBundle:Rates:newitem }
+admin_rates_veg_edit:
+    path:     /EditItem
+    defaults: { _controller: AdminBundle:Rates:editveg }
+admin_rates_city_edit:
+    path:     /EditCity
+    defaults: { _controller: AdminBundle:Rates:editcity }
+admin_rates_rate_edit:
+    path:     /EditRate
+    defaults: { _controller: AdminBundle:Rates:editrate }
+admin_rates_rate_detete:
+    path:     /DeleteRate/{id}
+    defaults: { _controller: AdminBundle:Rates:delrate }
+admin_rates_veg_detete:
+    path:     /Deleteveg/{id}
+    defaults: { _controller: AdminBundle:Rates:delveg }
+admin_rates_city_detete:
+    path:     /Deletecity/{id}
+    defaults: { _controller: AdminBundle:Rates:delcity }
+
+admin_rates_new_city:
+    path:     /NewCity
+    defaults: { _controller: AdminBundle:Rates:newcity }

@@ -1,0 +1,12 @@
+admin_news_new:
+    path:     /Create
+    defaults: { _controller: AdminBundle:News:new }
+admin_news_show:
+    path:     /
+    defaults: { _controller: AdminBundle:News:show }
+admin_news_delete:
+    path:     /Delete/{id}
+    defaults: { _controller: AdminBundle:News:delete }
+admin_news_edit:
+    path:     /{id}/Edit/
+    defaults: { _controller: AdminBundle:News:edit }

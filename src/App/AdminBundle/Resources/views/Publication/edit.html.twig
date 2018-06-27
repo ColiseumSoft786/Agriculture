@@ -1,0 +1,83 @@
+{% extends "::admin.html.twig" %}
+
+{% block title %} | {{ pub.pub.name }}{% endblock %}
+
+{% block body %}
+    <section class="content-header">
+        <h1>
+            Edit {{ pub.pub.name }}
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li>{{ pub.pub.name }}</li>
+            <li class="active">{{ pub.name }}</li>
+        </ol>
+    </section>
+
+    <section class="content">
+        <!-- /.row -->
+
+        <!-- Main row -->
+        <div class="row">
+            <!-- Left col -->
+            <div class="col-md-offset-1 col-md-10">
+                <!-- /.row -->
+
+                <!-- TABLE: LATEST ORDERS -->
+                <div class="box box-info">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">Edit {{ pub.name }}</h3>
+
+                        <div class="box-tools pull-right">
+                            <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                            </button>
+                            {#<button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>#}
+                        </div>
+                    </div>
+                    <!-- /.box-header -->
+                    <div class="box-body">
+                        <div class="table-responsive">
+                            <form id="pubcreateform" action="" method="post" enctype="multipart/form-data">
+                                <div class="col-sm-6">
+                                    <label for="" class="label label-info">Name <span class="text-danger">*</span></label>
+                                    <input value="{{ pub.name }}" type="text" name="name" id="name" class="form-control" placeholder="Enter {{ pub.name }} Name">
+                                </div>
+                                <div class="col-sm-6">
+                                    <label for="" class="label label-info">Document</label>
+                                    <input type="file" name="doc" id="doc" class="form-control">
+                                </div>
+                                <div class="col-sm-12">
+                                    <label for="" class="label label-info">More Information <span class="text-danger">*</span></label>
+                                    <textarea name="details" id="details" class="form-control" rows="10" placeholder="Enter More Information about {{ pub.name }}">{{ pub.details }}</textarea>
+                                    <input style="margin-top: 10px" type="submit" value="Update" class="btn btn-sm btn-info pull-right">
+                                </div>
+                            </form>
+                            <script>
+                                $('#pubcreateform').submit(function (e) {
+                                    if($('#name').val() == ""){
+                                        alert('Name is empty');
+                                        e.preventDefault();
+                                    }else if($('#details').val() == ""){
+                                        alert('Details is empty');
+                                        e.preventDefault();
+                                    }
+                                })
+                            </script>
+
+                        </div>
+                        <!-- /.table-responsive -->
+                    </div>
+                    <!-- /.box-body -->
+
+                    <!-- /.box-footer -->
+                </div>
+                <!-- /.box -->
+            </div>
+            <!-- /.col -->
+
+
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
+    </section>
+{% endblock %}

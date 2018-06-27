@@ -1,0 +1,12 @@
+<ul class="slides">
+    {% for item in slider %}
+        <li class="bg-dark-30 bg-dark" style="background-image:url({{ asset(item.path) }});">
+            <div class="titan-caption">
+                <div class="caption-content">
+                    <div class="font-alt mb-30 titan-title-size-1">{{ item.name }}</div>
+                </div>
+            </div>
+        </li>
+    {% endfor %}
+
+</ul>

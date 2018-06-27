@@ -1,0 +1,42 @@
+{% extends "::single.html.twig" %}
+
+{% block title %}{{ info.name }}{% endblock %}
+
+{% block body %}
+
+    <section class="module-small">
+        <div class="container">
+            <div class="row">
+                <table class="table table-bordered">
+                    <tr>
+                        <th >Mandi</th>
+                        <th >Agent</th>
+                        <th >Company</th>
+                        <th >Contact Number</th>
+                        <th >Commodities Traded</th>
+                        <th style="text-align: center">More</th>
+                    </tr>
+                    {% if infos|length != 0 %}
+                        {% for item in infos %}
+                            <tr>
+                                <td style="vertical-align: middle"> {{ item.mandi }}</td>
+                                <td style="vertical-align: middle">{{ item.agent }}</td>
+                                <td style="vertical-align: middle">{{ item.company }}</td>
+                                <td  style="vertical-align: middle">{{ item.phone }}</td>
+                                <td  style="vertical-align: middle">{{ item.traded }}</td>
+                                <td  style="width: 10%"><a href="{{ path('home_homepage_infos_details',{id:item.id}) }}" class="btn btn-d btn-circle btn-xs btn-block">More</a></td>
+                            </tr>
+                        {% endfor %}
+                    {% else %}
+                    <tr>
+                        <td colspan="6" style="text-align: center">No Data Found</td>
+                    </tr>
+                    {% endif %}
+
+
+                </table>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}
