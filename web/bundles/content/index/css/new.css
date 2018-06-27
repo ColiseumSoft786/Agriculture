@@ -1,0 +1,359 @@
+﻿.box-1green
+{
+    background:url(../img/box-1green.jpg) no-repeat center center;
+    background-size:100%;
+    padding-top:100px;
+    padding-bottom:100px;
+    margin:30px 0px;
+}
+.box-1green h4
+{
+    text-align:right;
+    color:#fff;
+    font-weight:bold;
+}
+.box-1green h1
+{
+    text-align:right;
+    color:#fff;
+    font-weight:bold;
+}
+.findyourprobs
+{
+    margin:30px 0px;
+}
+.findyourprobs h2
+{
+    text-align:center;
+    color:#000;
+    font-weight:bold;
+}
+.findyourprobs p
+{
+    text-align:center;
+    color:#000;
+    line-height:2em;
+    font-size:16px;
+}
+
+.friendlybar
+{
+    background:#a3d133;
+    margin:30px 0px;
+    padding:0px;
+}
+.friendlybar h2
+{
+    text-align:left;
+    color:#e5e5e5;
+    font-weight:bold;
+    margin-top:30px;
+}
+.friendlybar p
+{
+    text-align:center;
+    color:#e5e5e5;
+    line-height:2em;
+    font-size:16px;
+}
+
+
+.m-3-boxes
+{
+    margin:30px 0px;
+}
+.m-3-boxes .col-md-4
+{
+    
+}
+.m-3-boxes .col-md-4 .col-item
+{
+    padding:10px;
+    background:#e5e5e5;
+}
+.m-3-boxes .col-md-4 .col-item img
+{
+    margin:10px;
+}
+.m-3-boxes .col-md-4 .col-item h5
+{
+    text-align:center;
+    color:#000;
+}
+.m-3-boxes .col-md-4 .col-item a
+{
+    text-decoration:none;
+    color:#000;
+    font-weight:bold;
+    text-align:center;
+    display:block;
+    
+}
+.green-budtender
+{
+    background:#a3d133;
+    margin:30px 0px;
+    padding:30px 0px; 
+}
+.green-budtender h2
+{
+    text-align:center;
+    color:#fbfdf6;
+    font-weight:bold;
+    margin-top:30px;
+}
+.green-budtender p
+{
+    text-align:center;
+    color:#fbfdf6;
+    line-height:2em;
+    font-size:16px;
+}
+.green-budtender .col-md-6 p a
+{
+    text-decoration:none;
+    color:#fff;
+    font-size:16px;
+    text-align:center;
+    display:inline-block;
+    padding:7px 12px 7px 12px;
+    border-radius:30px;
+    border:2px solid#fff;
+    margin-top:15px;
+
+}
+.green-budtender .col-md-6 p a:hover
+{
+    background:#fff;
+    color:#000;
+}
+.green-budtender .col-md-6 .bud-slide-bar
+{
+    margin-top:70px;
+}
+.legalizations
+{
+    margin:30px 0px;
+    padding:30px 0px; 
+}
+
+.legalizations .col-md-8 h2
+{
+    text-align:left;
+    color:#000;
+    font-weight:bold;
+}
+.legalizations .col-md-8 p
+{
+    text-align:justify;
+    color:#000;
+    line-height:2em;
+    font-size:16px;
+}
+.legalizations .col-md-4 img
+{
+    vertical-align:middle;
+}
+.main3-boxes
+{
+    background:#a3d133;
+    margin:30px 0px;
+    padding:30px 0px;
+}
+.main3-boxes .col-md-4 .col-item
+{
+    background:#fff;
+    border-radius:10px;
+    padding:20px;
+}
+.main3-boxes .col-md-4 .col-item h5
+{
+    text-align:center;
+    color:#000;
+    font-weight:bold;
+}
+.main3-boxes .col-md-4 .col-item p
+{
+    text-align:center;
+    color:#000;
+    line-height:2em;
+}
+.main3-boxes .col-md-4 .col-item .main-btn
+{
+    text-align:center;
+    margin-top:20px;
+    
+}
+.main3-boxes .col-md-4 .col-item .main-btn a
+{
+    text-align:center;
+    padding:12px 18px;
+    background:#6f9319;
+    color:#FFF;
+    border-radius:20px;
+    text-decoration:none;
+}
+.featured-boxes
+{
+    margin:30px 0px;
+    padding:30px 0px;
+}
+.featured-boxes .col-md-4 .special-offer
+{
+    padding:20px;
+    border:2px solid#6f9319;
+    border-radius:10px;
+}
+.featured-boxes .col-md-4 .special-offer h3
+{
+    text-align:center;
+    display:block;
+
+    font-weight:bold;
+    color:#000;
+}
+.featured-boxes .col-md-4 .special-offer h5
+{
+    text-align:center;
+    display:block;
+    padding-top:20px;
+}
+.featured-boxes .col-md-4 .special-offer h5 span
+{
+    text-align:center;
+    padding:10px 20px;
+    background:#000;
+    color:#fff;
+}
+.featured-boxes .col-md-4 .special-offer h4
+{
+    text-align:center;
+    color:#000;
+}
+.featured-boxes .col-md-4 .special-offer h5
+{
+    text-align:center;
+    color:#ff0000;
+}
+.featured-boxes .col-md-4 .special-offer p
+{
+    text-align:center;
+    color:#000;
+    font-size:16px;
+    margin-top:20px;
+}
+.featured-boxes .col-md-4 .special-offer h1
+{
+    text-align:center;
+    color:#ff0000;
+    font-weight:bold;
+}
+.nav .nav-tabs li a
+{
+    color:#000;
+}
+
+
+
+  
+  .products-carousel-tabs .tab-content .col-md-12 .col-md-4 .f-item
+  {
+      border:1px solid#6f9319;
+      padding:20px;
+      margin:20px 0px;
+  }
+  .products-carousel-tabs .tab-content .col-md-12 .col-md-4 h5
+  {
+      text-align:center;
+      font-weight:bold;
+      color:#000;
+  }
+  .products-carousel-tabs .tab-content .col-md-12 .col-md-4 p
+  {
+      text-align:center;
+      padding:0px;
+      margin:10px;
+  }
+  .products-carousel-tabs .tab-content .col-md-12 .col-md-4 p a
+  {
+      color:#000;
+      font-weight:bold;
+      padding:0px;
+      margin:0px;
+  }
+  .products-carousel-tabs .tab-content .col-md-12 .col-md-4 p span
+  {
+     color:#ff0000;
+  }
+
+
+  .best-deals
+  {
+      margin:0px 0px;
+      padding:30px 0px;
+  }
+  .best-deals h2
+  {
+      text-align:center;
+    color:#000;
+    font-weight:bold;
+  }
+  .best-deals .col-md-3 .bestdeals
+  {
+      border:1px solid#6f9319;
+      padding:10px;
+      margin:20px 0px;
+  }
+  .best-deals .col-md-3 .bestdeals a
+  {
+      text-decoration:none;
+      color:#000;
+  }
+  .best-deals .col-md-3 .bestdeals h5
+  {
+      text-align:left;
+      padding:0px 0px 0px 0px;
+      color:#000;
+      font-weight:bold;
+  }
+  .best-deals .col-md-3 .bestdeals p
+  {
+      text-align:left;
+  }
+  .best-deals .col-md-3 .bestdeals p span
+  {
+      font-size:16px;
+      color:#000;
+  }
+
+
+
+
+
+  .best-deals .col-md-6 .bestdeals
+  {
+      border:1px solid#6f9319;
+      padding:24px;
+      margin:20px 0px;
+  }
+  .best-deals .col-md-6 .bestdeals a
+  {
+      text-decoration:none;
+      color:#000;
+  }
+  .best-deals .col-md-6 .bestdeals h5
+  {
+      text-align:left;
+      padding:30px 0px 30px 0px;
+      color:#000;
+      font-weight:bold;
+  }
+  .best-deals .col-md-6 .bestdeals p
+  {
+      text-align:left;
+  }
+  .best-deals .col-md-6 .bestdeals p span
+  {
+      font-size:16px;
+      color:#000;
+  }
