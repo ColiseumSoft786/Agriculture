@@ -25,14 +25,14 @@ class Rates
     private $id;
 
     /**
-     * @var \App\DataBundle\Entity\Item
-     */
-    private $item;
-
-    /**
      * @var \App\DataBundle\Entity\City
      */
     private $city;
+
+    /**
+     * @var \App\DataBundle\Entity\Item
+     */
+    private $item;
 
 
     /**
@@ -92,29 +92,6 @@ class Rates
     }
 
     /**
-     * Set item
-     *
-     * @param \App\DataBundle\Entity\Item $item
-     * @return Rates
-     */
-    public function setItem(\App\DataBundle\Entity\Item $item = null)
-    {
-        $this->item = $item;
-
-        return $this;
-    }
-
-    /**
-     * Get item
-     *
-     * @return \App\DataBundle\Entity\Item 
-     */
-    public function getItem()
-    {
-        return $this->item;
-    }
-
-    /**
      * Set city
      *
      * @param \App\DataBundle\Entity\City $city
@@ -135,5 +112,28 @@ class Rates
     public function getCity()
     {
         return $this->city;
+    }
+
+    /**
+     * Set item
+     *
+     * @param \App\DataBundle\Entity\Item $item
+     * @return Rates
+     */
+    public function setItem(\App\DataBundle\Entity\Item $item = null)
+    {
+        $this->item = $item;
+
+        return $this;
+    }
+
+    /**
+     * Get item
+     *
+     * @return \App\DataBundle\Entity\Item 
+     */
+    public function getItem()
+    {
+        return $this->item;
     }
 }

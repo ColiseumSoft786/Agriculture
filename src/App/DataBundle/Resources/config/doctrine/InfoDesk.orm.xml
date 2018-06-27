@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="App\DataBundle\Entity\InfoDesk" table="info_desk">
+    <id name="id" type="integer" column="Id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="nId" type="integer" column="n_id" nullable="false"/>
+    <field name="name" type="string" column="Name" length="45" nullable="false"/>
+    <field name="img" type="text" column="Img" nullable="true"/>
+    <field name="details" type="text" column="Details" nullable="true"/>
+  </entity>
+</doctrine-mapping>

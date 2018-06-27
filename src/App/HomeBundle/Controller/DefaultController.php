@@ -12,10 +12,8 @@ class DefaultController extends Controller
     {
         $veg = $this->getDoctrine()->getRepository('DataBundle:Item')->findBy(array(),array('id'=>'DESC'),10);
         $city = $this->getDoctrine()->getRepository('DataBundle:City')->findBy(array(),array('id'=>'DESC'),5);
-        $link = $this->getDoctrine()->getRepository('DataBundle:Link')->findAll();
         return $this->render('HomeBundle:Default:index.html.twig',array('veg' => $veg,
             'city' => $city,
-            'link' => $link
             ));
     }
     public function sliderAction(){
@@ -134,7 +132,9 @@ class DefaultController extends Controller
     public function menuAction(){
         $pubs = $this->getDoctrine()->getRepository('DataBundle:Publications')->findAll();
         $info = $this->getDoctrine()->getRepository('DataBundle:Infobank')->findAll();
+        $link = $this->getDoctrine()->getRepository('DataBundle:Link')->findAll();
         return $this->render('HomeBundle:Default:menu.html.twig',array(
+            'link' => $link,
             'pubs' => $pubs,
             'info' => $info
         ));

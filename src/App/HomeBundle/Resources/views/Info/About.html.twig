@@ -1,0 +1,20 @@
+{% extends "::single.html.twig" %}
+
+{% block title %}Discussion Panel{% endblock %}
+
+{% block body %}
+    <div class="module-extra-small">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-offset-1 col-md-10">
+                    {% for item in about %}
+                        {{ item.text }}
+                    {% endfor %}
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+    <br><br><br><br><br><br>
+{% endblock %}

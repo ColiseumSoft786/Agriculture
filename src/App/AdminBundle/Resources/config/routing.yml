@@ -7,6 +7,16 @@ admin_homepage_addpub:
 admin_homepage_addinfo:
     path:     /addnewinfo
     defaults: { _controller: AdminBundle:Default:addinfo }
+admin_info_about:
+    path:     /About_us
+    defaults: { _controller: AdminBundle:More:about }
+admin_info_contact:
+    path:     /Contact_us
+    defaults: { _controller: AdminBundle:More:contact }
+admin_info_desk:
+    path:     /info_desk/{action}/{id}
+    defaults: { _controller: AdminBundle:InfoDesk:info_desk }
+
 
 admin_publication:
     resource: "@AdminBundle/Resources/config/routes/publications.yml"
@@ -32,5 +42,6 @@ admin_slider:
 admin_link:
     resource: "@AdminBundle/Resources/config/routes/link.yml"
     prefix:   /Link
+
 
 

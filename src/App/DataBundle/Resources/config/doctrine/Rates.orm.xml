@@ -10,14 +10,14 @@
     </id>
     <field name="rate" type="integer" column="Rate" nullable="true"/>
     <field name="date" type="datetime" column="Date" nullable="true"/>
-    <many-to-one field="item" target-entity="Item">
-      <join-columns>
-        <join-column name="Item" referenced-column-name="Id"/>
-      </join-columns>
-    </many-to-one>
     <many-to-one field="city" target-entity="City">
       <join-columns>
         <join-column name="City" referenced-column-name="Id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="item" target-entity="Item">
+      <join-columns>
+        <join-column name="Item" referenced-column-name="Id"/>
       </join-columns>
     </many-to-one>
   </entity>

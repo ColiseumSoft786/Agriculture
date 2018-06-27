@@ -36,3 +36,10 @@ Panel_create:
 Panel_answers:
     path:     /Discussions/{q}/Ongoing
     defaults: { _controller: HomeBundle:Panel:answers }
+
+Info_about:
+  path:       /About_us
+  defaults:   { _controller: HomeBundle:Info:about}
+Info_contact:
+  path:       /Contact_us
+  defaults:   { _controller: HomeBundle:Info:contact}

@@ -44,28 +44,6 @@
             </div>
         </div>
     </div>
-
-    <div class="col-md-4">
-        <h4 class="module-title font-alt" style="margin: 0 !important;">Important Links</h4>
-        {#<div class="table100 ver5 m-b-110" style="overflow: visible;margin: auto">
-            <div class="table100-body js-pscroll" style="max-height: 300px !important;">#}
-                <table class="table" style="margin-top: 60px;font-size: 15px;max-height: 300px !important;">
-                    <tbody>
-
-                        {% set count = 1 %}
-                        {% for item in link %}
-                        <tr class="" style="border: 0;border-left: 1px solid ghostwhite;border-right: 1px solid ghostwhite;">
-                            <td class="text-center"><a href="{{ item.path }}">{{ item.name }} ({{ item.path }})</a></td>
-                        </tr>
-                            {% set count = count + 1 %}
-                        {% endfor %}
-
-                    </tbody>
-                </table>
-           {# </div>
-        </div>#}
-    </div>
-
 {% endblock %}
 {% block script %}
     <script src="{{ asset('bundles/table/') }}vendor/bootstrap/js/popper.js"></script>
