@@ -16,15 +16,6 @@ class InfoDeskController extends Controller
                 $new->setName($request->get('name'));
                 $new->setNId($id);
                 $new->setDetails($request->get('details'));
-                if($_FILES['pic']['name'] != ""){
-                    $info = pathinfo($_FILES['pic']['name']);
-                    $ext = $info['extension'];
-                    $date = date('mdYhisms', time());
-                    $newname = $date . '.' . $ext;
-                    $target = 'bundles/'.$newname;
-                    move_uploaded_file( $_FILES['pic']['tmp_name'], "./".$target);
-                    $new->setImg($target);
-                }
                 $em = $this->getDoctrine()->getManager();
                 $em->persist($new);
                 $em->flush();
@@ -37,20 +28,6 @@ class InfoDeskController extends Controller
                 $edit = $em->getRepository('DataBundle:InfoDesk')->find($id);
                 $edit->setName($request->get('name'));
                 $edit->setDetails($request->get('details'));
-                if($_FILES['pic']['name'] != ""){
-                    if($edit->getimg() != null){
-                        if(file_exists("./".$edit->getimg())){
-                            unlink("./".$edit->getimg());
-                        }
-                    }
-                    $info = pathinfo($_FILES['pic']['name']);
-                    $ext = $info['extension'];
-                    $date = date('mdYhisms', time());
-                    $newname = $date . '.' . $ext;
-                    $target = 'bundles/'.$newname;
-                    move_uploaded_file( $_FILES['pic']['tmp_name'], "./".$target);
-                    $edit->setimg($target);
-                }
                 $var = $edit->getNId();
                 $em->flush();
                 return $this->redirect($this->generateUrl('admin_info_desk', ['action' => 'view', 'id' => $var]));
@@ -86,5 +63,23 @@ class InfoDeskController extends Controller
                 'edit'    => $edit
             ));
         }
+    }
+    public function upload_picAction(Request $request){
+        $target = 0;
+        if($request->getMethod() == 'POST'){
+            if($_FILES['pic']['name'] != ""){
+                $info = pathinfo($_FILES['pic']['name']);
+                $ext = $info['extension'];
+                $date = date('mdYhisms', time());
+                $newname = $date . '.' . $ext;
+                $target = 'bundles/'.$newname;
+                move_uploaded_file( $_FILES['pic']['tmp_name'], "./".$target);
+                $target = $this->getRequest()->getUriForPath($target);
+            }
+
+        }
+        return $this->render('AdminBundle:info_desk:upload_pic.html.twig',array(
+            'pic' => $target,
+        ));
     }
 }
