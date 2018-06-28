@@ -218,24 +218,19 @@
                     <li><a href="{{ path('admin_info_contact') }}"><i class="fa fa-circle-o"></i>Contact Us</a></li>
                 </ul>
             </li>
-            <li>
-                <a href="{{ path('admin_info_desk',{'action':'view','id':0}) }}">
-                    <i class="fa fa-newspaper-o"></i>
-                    <span>formats</span>
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-user-o"></i>
+                    <span>Info Desk</span>
+                    <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
                 </a>
-            </li>
-            <li>
-                <script></script>
-                <a href="{{ path('admin_info_desk',{'action':'view','id':1}) }}">
-                    <i class="fa fa-newspaper-o"></i>
-                    <span>cprmorator</span>
-                </a>
-            </li>
-            <li>
-                <a href="{{ path('admin_info_desk',{'action':'view','id':2}) }}">
-                    <i class="fa fa-newspaper-o"></i>
-                    <span>suporter</span>
-                </a>
+                <ul class="treeview-menu">
+                    <li><a href="{{ path('admin_info_desk',{'action':'view','id':0}) }}"><i class="fa fa-circle-o"></i>Farmers</a></li>
+                    <li><a href="{{ path('admin_info_desk',{'action':'view','id':1}) }}"><i class="fa fa-circle-o"></i>Cooperate</a></li>
+                    <li><a href="{{ path('admin_info_desk',{'action':'view','id':2}) }}"><i class="fa fa-circle-o"></i>exporters</a></li>
+                </ul>
             </li>
             <li>
                 <a href="{{ path('admin_news_show') }}">
