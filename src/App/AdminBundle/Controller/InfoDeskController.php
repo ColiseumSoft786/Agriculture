@@ -35,7 +35,7 @@ class InfoDeskController extends Controller
         }
         if ($action == 'view'){
             $fetch = $this->getDoctrine()->getRepository('DataBundle:InfoDesk')->findBy(array('nId'=>$id));
-            if($id == 0){$name = 'Formats';}elseif ($id == 1){$name = 'cprmorator';}else{$name = 'Suporter';}
+            if($id == 0){$name = 'Farmers';}elseif ($id == 1){$name = 'Cooperate';}else{$name = 'Exporters';}
             return $this->render('AdminBundle:info_desk:view.html.twig',array(
                 'fetch' => $fetch,
                 'name'  => $name,
@@ -50,13 +50,13 @@ class InfoDeskController extends Controller
             return $this->redirect($this->generateUrl('admin_info_desk', ['action' => 'view', 'id' => $id]));
         }
         elseif ($action == 'new'){
-            if($id == 0){$name = 'Formats';}elseif ($id == 1){$name = 'cprmorator';}else{$name = 'Suporter';}
+            if($id == 0){$name = 'Farmers';}elseif ($id == 1){$name = 'Cooperate';}else{$name = 'Exporters';}
             return $this->render('AdminBundle:info_desk:new.html.twig',array(
                 'name'  => $name
             ));
         }
         elseif ($action == 'edit'){
-            if($id == 0){$name = 'Formats';}elseif ($id == 1){$name = 'cprmorator';}else{$name = 'Suporter';}
+            if($id == 0){$name = 'Farmers';}elseif ($id == 1){$name = 'Cooperate';}else{$name = 'Exporters';}
             $edit = $this->getDoctrine()->getRepository('DataBundle:InfoDesk')->findOneBy(array('id'=>$id));
             return $this->render('AdminBundle:info_desk:edit.html.twig',array(
                 'name'  => $name,
@@ -72,9 +72,9 @@ class InfoDeskController extends Controller
                 $ext = $info['extension'];
                 $date = date('mdYhisms', time());
                 $newname = $date . '.' . $ext;
-                $target = 'bundles/'.$newname;
+                $target = '/bundles/Images/'.$newname;
                 move_uploaded_file( $_FILES['pic']['tmp_name'], "./".$target);
-                $target = $this->getRequest()->getUriForPath($target);
+                $target = 'localhost/agriculture/web/' . $target;
             }
 
         }

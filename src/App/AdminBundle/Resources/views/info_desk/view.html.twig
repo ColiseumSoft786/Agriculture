@@ -34,7 +34,6 @@
                                 <tr>
                                     <th>#</th>
                                     <th>Name</th>
-                                    <th>Details</th>
                                     <th>Action</th>
                                 </tr>
                                 </thead>
@@ -44,7 +43,7 @@
                                     <tr>
                                         <td>{{ count }}</td>
                                         <td>{{ item.name }}</td>
-                                        <td>1</td><td>
+                                        <td>
                                             <h4 style="margin: 0">
                                                 <a href="{{ path('admin_info_desk',{action:'edit',id:item.id}) }}"><i class="fa fa-edit"></i></a>
                                                 <a href="{{ path('admin_info_desk',{action:'delete',id:item.id}) }}" style="margin-left: 10px;color: orangered"><i class="fa fa-cut"></i></a>
