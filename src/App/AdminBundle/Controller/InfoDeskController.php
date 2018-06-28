@@ -5,6 +5,7 @@ namespace App\AdminBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use App\DataBundle\Entity\InfoDesk;
+use App\DataBundle\Entity\Pics;
 
 
 class InfoDeskController extends Controller
@@ -16,6 +17,15 @@ class InfoDeskController extends Controller
                 $new->setName($request->get('name'));
                 $new->setNId($id);
                 $new->setDetails($request->get('details'));
+                if($_FILES['pic']['name'] != ""){
+                    $info = pathinfo($_FILES['pic']['name']);
+                    $ext = $info['extension'];
+                    $date = date('mdYhisms', time());
+                    $newname = $date . '.' . $ext;
+                    $target = 'bundles/Images/'.$newname;
+                    move_uploaded_file( $_FILES['pic']['tmp_name'], "./".$target);
+                    $new->setImg($target);
+                }
                 $em = $this->getDoctrine()->getManager();
                 $em->persist($new);
                 $em->flush();
@@ -28,6 +38,20 @@ class InfoDeskController extends Controller
                 $edit = $em->getRepository('DataBundle:InfoDesk')->find($id);
                 $edit->setName($request->get('name'));
                 $edit->setDetails($request->get('details'));
+                if($_FILES['pic']['name'] != ""){
+                    if($edit->getimg() != null){
+                        if(file_exists("./".$edit->getimg())){
+                            unlink("./".$edit->getimg());
+                        }
+                    }
+                    $info = pathinfo($_FILES['pic']['name']);
+                    $ext = $info['extension'];
+                    $date = date('mdYhisms', time());
+                    $newname = $date . '.' . $ext;
+                    $target = 'bundles/Images/'.$newname;
+                    move_uploaded_file( $_FILES['pic']['tmp_name'], "./".$target);
+                    $edit->setimg($target);
+                }
                 $var = $edit->getNId();
                 $em->flush();
                 return $this->redirect($this->generateUrl('admin_info_desk', ['action' => 'view', 'id' => $var]));
@@ -66,20 +90,42 @@ class InfoDeskController extends Controller
     }
     public function upload_picAction(Request $request){
         $target = 0;
+        if($request->get('id')){
+            $em = $this->getDoctrine()->getManager();
+           $del = $em->getRepository('DataBundle:Pics')->find($request->get('id'));
+            $em->remove($del);
+          $em->flush();
+            return $this->redirect($this->generateUrl('admin_upload_pic'));
+        }
         if($request->getMethod() == 'POST'){
             if($_FILES['pic']['name'] != ""){
                 $info = pathinfo($_FILES['pic']['name']);
                 $ext = $info['extension'];
                 $date = date('mdYhisms', time());
                 $newname = $date . '.' . $ext;
-                $target = '/bundles/Images/'.$newname;
+                $target = 'bundles/Images/'.$newname;
                 move_uploaded_file( $_FILES['pic']['tmp_name'], "./".$target);
+                $pic = New Pics();
+                $pic->setPath($target);
+                $em = $this->getDoctrine()->getManager();
+                $em->persist($pic);
+                $em->flush();
                 $target = 'localhost/agriculture/web/' . $target;
             }
-
         }
+//        elseif ($request->get('action' == 'delete')){
+////            $em = $this->getDoctrine()->getManager();
+////            $del = $em->getRepository('DataBundle:Pics')->find($request->get('id'));
+////            $em->remove($del);
+////            $em->flush();
+////            return $this->redirect($this->generateUrl('admin_upload_pic'));
+//        }
+
+        $pic = $this->getDoctrine()->getRepository('DataBundle:Pics')->findAll();
+        $pic = array_reverse($pic);
         return $this->render('AdminBundle:info_desk:upload_pic.html.twig',array(
             'pic' => $target,
+            'pics' => $pic
         ));
     }
 }

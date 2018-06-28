@@ -170,4 +170,18 @@ class DefaultController extends Controller
             'info' => $info
         ));
     }
+    public function info_deskAction($id,$name){
+        if($name == 'view'){
+            $data = $this->getDoctrine()->getRepository('DataBundle:InfoDesk')->findBy(array('nId'=>$id));
+            return $this->render('HomeBundle:default:info_desk_view.html.twig',array(
+                'data' => $data
+            ));
+        }
+        elseif ($name == 'read'){
+            $data = $this->getDoctrine()->getRepository('DataBundle:InfoDesk')->findOneBy(array('id'=>$id));
+            return $this->render('HomeBundle:default:info_desk_read.html.twig',array(
+                'data' => $data
+            ));
+        }
+    }
 }

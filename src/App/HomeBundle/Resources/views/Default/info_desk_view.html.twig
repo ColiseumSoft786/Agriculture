@@ -1,0 +1,31 @@
+{% extends "::single.html.twig" %}
+{% block body %}
+
+    <section class="module-small">
+        <div class="container">
+            <div class="row">
+                <table class="table table-bordered">
+                    <tr>
+                        <th style="text-align: center">Name</th>
+                        <th style="text-align: center">Important Information</th>
+                    </tr>
+                    {% if data|length != 0 %}
+                        {% for item in data %}
+                            <tr>
+                                <td style="vertical-align: middle ;width: 15%"> {{ item.name }}</td>
+                                <td style="vertical-align: middle">{{ item.details|raw|slice(0, 300) }}<br><a href="{{ path('home_info_desk',{id:item.id,name:'read'}) }}" class="text-blue">Read More</a></td>
+                            </tr>
+                        {% endfor %}
+                    {% else %}
+                        <tr>
+                            <td colspan="3" style="text-align: center">No Data Found</td>
+                        </tr>
+                    {% endif %}
+
+
+                </table>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}
