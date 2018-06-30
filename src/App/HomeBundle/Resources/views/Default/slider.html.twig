@@ -10,9 +10,11 @@
         </li>
     {% endfor %}
     <div style="position: absolute;z-index: 9999;margin-top: 400px;" class="hidden-sm hidden-xs">
-        <div class="col-md-offset-5 col-md-8 text-white">
+        <div class="col-md-offset-4 col-md-8 text-black"><div class="row">
             <form action="{{ path('home_homepage_infos_chart') }}" method="post">
+
                 <div class="col-sm-6">
+                    <div>
                     <label for="">Select Vegetable</label>
                     <select name="veg" class="form-control" id="">
                         <option value="">- Select Vegetable -</option>
@@ -39,39 +41,8 @@
                     <input type="date" name="edate" class="form-control">
                 </div>
                 <input type="submit" class="btn btn-d pull-right" style="margin-top: 10px;margin-right: 20px" value="Filter">
-            </form>
-        </div>
-    </div>
-    <div style="position: absolute;z-index: 9999;margin-top: 400px;" class="hidden-sm hidden-xs">
-        <div class="col-md-offset-5 col-md-8 text-white">
-            <form action="{{ path('home_homepage_infos_chart') }}" method="post">
-                <div class="col-sm-6">
-                    <label for="">Select Vegetable</label>
-                    <select name="veg" class="form-control" id="">
-                        <option value="">- Select Vegetable -</option>
-                        {% for item in veg %}
-                            <option value="{{ item.id }}">{{ item.name }}</option>
-                        {% endfor %}
-                    </select>
                 </div>
-                <div class="col-sm-6">
-                    <label for="">Select City</label>
-                    <select name="city" class="form-control" id="">
-                        <option value="">- Select City -</option>
-                        {% for item in city %}
-                            <option value="{{ item.id }}">{{ item.name }}</option>
-                        {% endfor %}
-                    </select>
-                </div>
-                <div class="col-sm-6">
-                    <label for="">Start Date</label>
-                    <input type="date" name="sdate" class="form-control">
-                </div>
-                <div class="col-md-6">
-                    <label for="">End Date</label>
-                    <input type="date" name="edate" class="form-control">
-                </div>
-                <input type="submit" class="btn btn-d pull-right" style="margin-top: 10px;margin-right: 20px" value="Filter">
+               </div>
             </form>
         </div>
     </div>
