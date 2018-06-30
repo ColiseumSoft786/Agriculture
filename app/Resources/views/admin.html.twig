@@ -476,12 +476,21 @@
 
 </div>
 
+<style>
+    .dataTables_filter{
+        display: none !important;
+    }
+</style>
 
 <script>
+    $('.table').DataTable();
+    $('.table').css('margin-top','10px');
+
     CKEDITOR.replace('details');
 </script>
 {% block javascripts %}
 {% endblock %}
+
 
 </body>
 </html>
