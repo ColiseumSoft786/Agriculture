@@ -92,14 +92,9 @@ class InfoDeskController extends Controller
         $target = 0;
         if($request->get('id')){
             $em = $this->getDoctrine()->getManager();
-            $del = $em->getRepository('DataBundle:Pics')->find($request->get('id'));
-            if($del->getPath() != null){
-                if(file_exists("./".$del->getPath())){
-                    unlink("./".$del->getPath());
-                }
-            }
+           $del = $em->getRepository('DataBundle:Pics')->find($request->get('id'));
             $em->remove($del);
-            $em->flush();
+          $em->flush();
             return $this->redirect($this->generateUrl('admin_upload_pic'));
         }
         if($request->getMethod() == 'POST'){
@@ -126,7 +121,7 @@ class InfoDeskController extends Controller
 ////            return $this->redirect($this->generateUrl('admin_upload_pic'));
 //        }
 
-        $pic = $this->getDoctrine()->getRepository('DataBundle:Pics')->findAll();
+        $pic = $this->getDoctrine()->getRepository('DataBundle:Pics')->findBy(array(),array(),30);
         $pic = array_reverse($pic);
         return $this->render('AdminBundle:info_desk:upload_pic.html.twig',array(
             'pic' => $target,
