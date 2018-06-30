@@ -1,0 +1,33 @@
+<div style="" class="hidden-lg hidden-md">
+    <div class=" col-sm-12">
+        <form action="{{ path('home_homepage_infos_chart') }}" method="post">
+            <div class="col-sm-3">
+                <label for="">Select Vegetable</label>
+                <select name="veg" class="form-control" id="">
+                    <option value="" style="border: 1px solid #ccc !important;">- Select Vegetable -</option>
+                    {% for item in veg %}
+                        <option value="{{ item.id }}">{{ item.name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="col-sm-3">
+                <label for="">Select City</label>
+                <select name="city" class="form-control" id="">
+                    <option value="" style="border: 1px solid #ccc !important;">- Select City -</option>
+                    {% for item in city %}
+                        <option value="{{ item.id }}" >{{ item.name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="col-sm-3">
+                <label for="">Start Date</label>
+                <input type="date" name="sdate" class="form-control" style="border: 1px solid #ccc !important;">
+            </div>
+            <div class="col-md-3">
+                <label for="">End Date</label>
+                <input type="date" name="edate" class="form-control" style="border: 1px solid #ccc !important;">
+            </div>
+            <input type="submit" class="btn btn-d pull-right" style="margin-top: 10px;margin-right: 20px" value="Filter">
+        </form>
+    </div>
+</div>

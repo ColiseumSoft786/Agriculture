@@ -12,14 +12,27 @@ class DefaultController extends Controller
     {
         $veg = $this->getDoctrine()->getRepository('DataBundle:Item')->findBy(array(),array('id'=>'DESC'),10);
         $city = $this->getDoctrine()->getRepository('DataBundle:City')->findBy(array(),array('id'=>'DESC'),5);
-        return $this->render('HomeBundle:Default:index.html.twig',array('veg' => $veg,
-            'city' => $city,
+        return $this->render('HomeBundle:Default:index.html.twig',array(
+            'veg' => $veg,
+            'city' => $city
             ));
     }
     public function sliderAction(){
         $slider = $this->getDoctrine()->getRepository('DataBundle:Slider')->findAll();
+        $veg = $this->getDoctrine()->getRepository('DataBundle:Item')->findAll();
+        $city = $this->getDoctrine()->getRepository('DataBundle:City')->findAll();
         return $this->render('HomeBundle:Default:slider.html.twig',array(
-            'slider' => $slider
+            'slider' => $slider,
+            'city' => $city,
+            'veg' => $veg
+        ));
+    }
+    public function Chart_HomeAction(){
+        $veg = $this->getDoctrine()->getRepository('DataBundle:Item')->findAll();
+        $city = $this->getDoctrine()->getRepository('DataBundle:City')->findAll();
+        return $this->render('HomeBundle:Default:chart_home.html.twig',array(
+            'city' => $city,
+            'veg' => $veg
         ));
     }
     public function byvegAction($id){
