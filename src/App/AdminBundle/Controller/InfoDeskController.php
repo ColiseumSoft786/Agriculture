@@ -111,6 +111,9 @@ class InfoDeskController extends Controller
                 $em->persist($pic);
                 $em->flush();
                 $target = 'localhost/agriculture/web/' . $target;
+
+                return $this->redirect($this->generateUrl('admin_upload_pic'));
+
             }
         }
 //        elseif ($request->get('action' == 'delete')){

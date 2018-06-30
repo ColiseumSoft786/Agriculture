@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="{{ asset('bundles/content/dist/css/AdminLTE.min.css') }}">
     <link rel="stylesheet" href="{{ asset('bundles/content/dist/css/skins/_all-skins.min.css') }}">
 
-
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
 
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
@@ -49,9 +49,16 @@
 <script src="{{ asset('bundles/content/dist/js/demo.js') }}"></script>
 <script src="{{ asset('bundles/content/dist/js/gitcdn.js') }}"></script>
 <script src="https://cdn.ckeditor.com/4.9.2/standard/ckeditor.js"></script>
-
+<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
 <header class="main-header">
+    <style>
+        .main-sidebar{
+            position: fixed !important;
+        }.skin-blue .main-header .logo {
+            position: fixed !important;
+                 }
 
+    </style>
     <!-- Logo -->
     <a href="" class="logo">
         <!-- mini logo for sidebar mini 50x50 pixels -->
@@ -110,16 +117,20 @@
         <!-- /.search form -->
         <!-- sidebar menu: : style can be found in sidebar.less -->
         <ul class="sidebar-menu" data-widget="tree">
-            <li class="header">MAIN NAVIGATION</li>
-            <li class="treeview menu-open">
+            <li class="header">MAIN SETTINGS</li>
+            <li class="treeview">
                 <a href="#">
-                    <i class="fa fa-dashboard"></i> <span>Dashboard</span>
+                    <i class="fa fa-dashboard"></i> <span>Homepage & Others</span>
                     <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li class=""><a href=""><i class="fa fa-circle-o"></i> Dashboard</a></li>
+                    <li class=""><a href="{{ path('admin_homepage') }}"><i class="fa fa-circle-o"></i> Admin Panel</a></li>
+                    <li><a href="{{ path('admin_info_about') }}"><i class="fa fa-circle-o"></i>About US</a></li>
+                    <li><a href="{{ path('admin_info_contact') }}"><i class="fa fa-circle-o"></i>Contact Us</a></li>
+                    <li><a href="{{ path('admin_slider_index') }}"><i class="fa fa-circle-o"></i><span>Slider</span></a></li>
+                    <li><a href="{{ path('admin_link_index') }}"><i class="fa fa-circle-o"></i><span>Important Links</span></a></li>
                 </ul>
             </li>
             <li class="treeview">
@@ -210,19 +221,6 @@
             <li class="treeview">
                 <a href="#">
                     <i class="fa fa-user-o"></i>
-                    <span>More Links</span>
-                    <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-                </a>
-                <ul class="treeview-menu">
-                    <li><a href="{{ path('admin_info_about') }}"><i class="fa fa-circle-o"></i>About US</a></li>
-                    <li><a href="{{ path('admin_info_contact') }}"><i class="fa fa-circle-o"></i>Contact Us</a></li>
-                </ul>
-            </li>
-            <li class="treeview">
-                <a href="#">
-                    <i class="fa fa-user-o"></i>
                     <span>Info Desk</span>
                     <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
@@ -240,30 +238,14 @@
                     <span>Images</span>
                 </a>
             </li>
-            <li>
-                <a href="{{ path('admin_news_show') }}">
-                    <i class="fa fa-newspaper-o"></i>
-                    <span>News</span>
-                </a>
-            </li>
+            <li><a href="{{ path('admin_news_show') }}"><i class="fa fa-newspaper-o"></i><span>News</span></a></li>
             <li>
                 <a href="{{ path('admin_rates_index') }}">
                     <i class="fa fa-toggle-down"></i>
                     <span>Daily Rates</span>
                 </a>
             </li>
-            <li>
-                <a href="{{ path('admin_slider_index') }}">
-                    <i class="fa fa-sliders"></i>
-                    <span>Slider</span>
-                </a>
-            </li>
-            <li>
-                <a href="{{ path('admin_link_index') }}">
-                    <i class="fa fa-link"></i>
-                    <span>Important Links</span>
-                </a>
-            </li>
+
             <li>
                 <a href="{{ path('panel_index') }}">
                     <i class="fa fa-diamond"></i>
