@@ -121,7 +121,7 @@ class InfoDeskController extends Controller
 ////            return $this->redirect($this->generateUrl('admin_upload_pic'));
 //        }
 
-        $pic = $this->getDoctrine()->getRepository('DataBundle:Pics')->findAll();
+        $pic = $this->getDoctrine()->getRepository('DataBundle:Pics')->findBy(array(),array(),30);
         $pic = array_reverse($pic);
         return $this->render('AdminBundle:info_desk:upload_pic.html.twig',array(
             'pic' => $target,

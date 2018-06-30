@@ -16,6 +16,9 @@ admin_info_contact:
 admin_info_desk:
     path:     /info_desk/{action}/{id}
     defaults: { _controller: AdminBundle:InfoDesk:info_desk }
+admin_upload_pic:
+    path:     /upload_pic
+    defaults: { _controller: AdminBundle:InfoDesk:upload_pic }
 
 
 admin_publication:
