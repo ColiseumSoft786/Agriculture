@@ -13,7 +13,7 @@
                         {% for item in data %}
                             <tr>
                                 <td style="vertical-align: middle ;width: 15%"> {{ item.name }}</td>
-                                <td style="vertical-align: middle">{{ item.details|raw|slice(0, 300) }}<br><a href="{{ path('home_info_desk',{id:item.id,name:'read'}) }}" class="text-blue">Read More</a></td>
+                                <td style="vertical-align: middle">{{ item.details|slice(0, 300)|raw }}<br><a href="{{ path('home_info_desk',{id:item.id,name:'read'}) }}" class="text-blue">Read More</a></td>
                             </tr>
                         {% endfor %}
                     {% else %}
