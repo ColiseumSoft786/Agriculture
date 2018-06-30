@@ -37,21 +37,26 @@
                             <div class="col-sm-offset-6 col-sm-6">
                             </div>
                             <div class="col-md-12">
+                                <table class="table table-bordered table-striped table-responsive">
+                                    <tr>
+                                        <th>Images</th>
+                                        <th>Link</th>
+                                        <th width="20%">Action</th>
+                                    </tr>
                                     {% for item in pics %}
-                                <div class="col-md-4">
-                                    {% set id = 'link' %}
-                                    {% set id = id~item.id %}
-                                    <img src="{{ asset(item.path) }}" id="img{{ item.id }}" style="width: 100%;height: 100%;margin-top: 10px" onclick="clicked(this)">
-                                    <p id="{{ id }}" hidden>{{ item.path }}</p>
-                                    <input type="text" name="meme-image-url-0{{ item.id }}" id="meme-image-url-0{{ item.id }}" class="disabled" />
-                                    <script>
+                                        {% set id = 'link' %}
+                                        {% set id = id~item.id %}
+                                    <tr>
+                                        <td><img src="{{ asset(item.path) }}" id="img{{ item.id }}" style="width: 20%;height: 18%;margin-top: 10px" onclick="clicked(this)"></td>
+                                        <td><input type="text" name="meme-image-url-0{{ item.id }}" id="meme-image-url-0{{ item.id }}" class="disabled" /></td>
+                                        <td><a onclick="copyToClipboard('#{{ id }}')" href="{{ path('admin_upload_pic',{action:'delete',id:item.id}) }}" style="margin: 10px;">Remove</a>
+                                            <a onclick="myFunction{{ item.id }}()" href="#">Copy</a></td>
+                                    </tr>
+                                        <script>
 
-                                        document.getElementById('meme-image-url-0{{ item.id }}').value = document.getElementById("img{{ item.id }}").src;
-                                        document.getElementById('meme-top-text-0{{ item.id }}').focus();
-                                    </script>
-                                    <a onclick="copyToClipboard('#{{ id }}')" href="{{ path('admin_upload_pic',{action:'delete',id:item.id}) }}" style="position: absolute;top: 8%; left: 15%;transform: translate(-50%, -50%);-ms-transform: translate(-50%, -50%);">Remove</a>
-                                    <a onclick="myFunction{{ item.id }}()" href="#" style="position: absolute;top: 8%; right: 8%;transform: translate(-50%, -50%);-ms-transform: translate(-50%, -50%);">Copy</a>
-                                </div>
+                                            document.getElementById('meme-image-url-0{{ item.id }}').value = document.getElementById("img{{ item.id }}").src;
+                                            document.getElementById('meme-top-text-0{{ item.id }}').focus();
+                                        </script>
                                         <script>
                                             function myFunction{{ item.id }}() {
                                                 var copyText = document.getElementById("meme-image-url-0{{ item.id }}");
@@ -60,7 +65,9 @@
                                             }
                                         </script>
                                     {% endfor %}
+                                </table>
                             </div>
+
                         <!-- /.table-responsive -->
                     </div>
                     <!-- /.box-body -->
