@@ -1,0 +1,10 @@
+#marqueecontainer{
+    position: relative;
+    /*width: 400px; !*marquee width *!*/
+    height: 250px; /*marquee height */
+    overflow: hidden;
+    /*border: 1px solid black;*/
+    padding: 2px;
+    padding-left: 4px;
+    margin-top: 70px;
+}

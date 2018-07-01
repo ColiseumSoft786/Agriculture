@@ -8,9 +8,10 @@
     <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="{{ asset('bundles/table/') }}css/util.css">
     <link rel="stylesheet" type="text/css" href="{{ asset('bundles/table/') }}css/main.css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/table/') }}css/my.css">
 {% endblock %}
 {% block body %}
-    <div class="col-md-8">
+    <div class="col-md-offset-1 col-md-10">
         <h3 class="module-title font-alt" style="margin: 0 !important;">Agriculture Markets</h3>
         <a href="{{ path('home_homepage_infos_chart') }}" class="pull-right">View Chart</a>
         <div class="table100 ver5 m-b-110" style="overflow: visible;margin: auto">
@@ -37,8 +38,6 @@
                             {% endfor %}
                         </tr>
                     {% endfor %}
-
-
                     </tbody>
                 </table>
             </div>
@@ -60,7 +59,44 @@
                 ps.update();
             })
         });
+        $('.js-pscroll').each(function(){
+            var ps = new PerfectScrollbar(this);
 
+            $(window).on('resize', function(){
+                ps.update();
+
+            })
+        });
+        $('#qform').submit(function (e) {
+            var check = true;
+            if($('#name').val() == ""){
+                alert('Name is empty');
+                check = false;
+            }else if($('#email').val() == ""){
+                alert('Email' +
+                    ' is empty');
+                check = false;
+            }else if($('#question').val() == ""){
+                check = false;
+                alert('Question is empty');
+            }
+            e.preventDefault();
+            if(check == true){
+                $('#start').hide();
+                $('#between').show();
+                $.ajax({
+                    url: '{{ path('Panel_create') }}',
+                    type: 'POST',
+                    data: $('#qform').serialize(),
+                    success: function(result){
+                        if(result == 'true'){
+                            $('#between').hide();
+                            $('#end').show();
+                        }
+                    }
+                });
+            }
+        });
 
     </script>
     <!--===============================================================================================-->
