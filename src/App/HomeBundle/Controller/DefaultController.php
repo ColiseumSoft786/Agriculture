@@ -190,16 +190,19 @@ class DefaultController extends Controller
         ));
     }
     public function info_deskAction($id,$name){
+        if($id == 0){$name1 = 'Farmers';}elseif ($id == 1){$name1 = 'Cooperate';}else{$name1 = 'Exporters';}
         if($name == 'view'){
             $data = $this->getDoctrine()->getRepository('DataBundle:InfoDesk')->findBy(array('nId'=>$id));
             return $this->render('HomeBundle:default:info_desk_view.html.twig',array(
-                'data' => $data
+                'data' => $data,
+                'name' => $name1,
             ));
         }
         elseif ($name == 'read'){
             $data = $this->getDoctrine()->getRepository('DataBundle:InfoDesk')->findOneBy(array('id'=>$id));
             return $this->render('HomeBundle:default:info_desk_read.html.twig',array(
-                'data' => $data
+                'data' => $data,
+                'name' => $name1
             ));
         }
     }
