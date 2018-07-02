@@ -29,6 +29,11 @@
     <link href="{{ asset('bundles/assets/css/style.css') }}" rel="stylesheet">
     <link id="color-scheme" href="{{ asset('bundles/assets/css/colors/default.css') }}" rel="stylesheet">
     {% block stylesheets %}{% endblock %}
+    <style>
+        .module{
+            padding: 50px 0;
+        }
+    </style>
 </head>
 <body data-spy="scroll" data-target=".onpage-navigation" data-offset="60">
 
@@ -82,7 +87,9 @@
             <div class="container">
                 <div class="col-md-offset-3 col-md-6">
                     <div id="start">
-                        <legend>Create Discussion Question</legend>
+                        <h3 class="module-title font-alt" style="margin: 0 !important;">Start Discussion</h3>
+                        <br>
+                        <br>
                         <form id="qform">
                             <label for="">Question</label>
                             <textarea name="question" id="question" rows="3" placeholder="Enter Question" class="form-control"></textarea>

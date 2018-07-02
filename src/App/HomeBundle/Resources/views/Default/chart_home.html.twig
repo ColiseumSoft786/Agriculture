@@ -100,10 +100,13 @@
         <br>
         <br>
         <br>
-        <table class="table table-striped table-responsive">
+
+
+        <table class="table table-bordered">
             {% for item in link %}
             <tr>
-                <td><a href="{{ item.path }}">{{ item.name }}</a></td>
+                <td style="white-space: nowrap;width: 1%"><span class="fa fa-link"></span></td>
+                <td ><a target="_blank" href="{{ item.path }}">{{ item.name }}</a></td>
             </tr>
             {% endfor %}
         </table>
