@@ -15,6 +15,9 @@
                 <li><a href="{{ path('home_homepage_infos',{id:item.id,name:item.name}) }}">{{ item.name }}</a></li>
             {% endfor %}
             <li ><a  href="{{ path('home_homepage_infos_chart') }}">Price Chart</a></li>
+            <li ><a  href="{{ path('home_info_desk',{id:0,name:'view'})}}">Farmers</a></li>
+            <li ><a  href="{{ path('home_info_desk',{id:1,name:'view'}) }}">Cooperate</a></li>
+            <li ><a  href="{{ path('home_info_desk',{id:2,name:'view'}) }}">Exporters</a></li>
         </ul>
     </li>
     <li class="dropdown"><a class="dropdown-toggle" href="#" data-toggle="dropdown">Impt Link</a>
