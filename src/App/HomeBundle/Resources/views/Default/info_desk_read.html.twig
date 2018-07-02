@@ -5,11 +5,13 @@
     <section class="module-small">
         <div class="container">
             <div class="row">
-                <div class="col-md-12">
-                    {{ data.name }}
+                <div class=" col-md-offset-4 col-md-8">
+                    <img src="{{ asset(data.img) }}" style="width: 200px;height: 200px" alt="" onerror="this.src='{{ asset('bundles/Images/not-found.png') }}'">
                 </div>
+                <div class="col-md-12"><hr></div>
+                <br>
                 <div class="col-md-12">
-                    {{ data.details|raw }}
+                    <p style="font-size: 18px">{{ data.details|raw }}</p>
                 </div>
             </div>
         </div>
