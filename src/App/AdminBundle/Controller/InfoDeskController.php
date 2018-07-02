@@ -69,6 +69,11 @@ class InfoDeskController extends Controller
         elseif ($action == 'delete'){
             $em = $this->getDoctrine()->getManager();
             $delete = $em->getRepository('DataBundle:InfoDesk')->find($id);
+            if($delete->getImg() != null){
+                if(file_exists("./".$delete->getImg())){
+                    unlink("./".$delete->getImg());
+                }
+            }
             $em->remove($delete);
             $em->flush();
             return $this->redirect($this->generateUrl('admin_info_desk', ['action' => 'view', 'id' => $id]));
@@ -93,8 +98,10 @@ class InfoDeskController extends Controller
         if($request->get('id')){
             $em = $this->getDoctrine()->getManager();
             $del = $em->getRepository('DataBundle:Pics')->find($request->get('id'));
+            if($del->getPath() != null){
                 if(file_exists("./".$del->getPath())){
                     unlink("./".$del->getPath());
+                }
             }
             $em->remove($del);
             $em->flush();
