@@ -10,8 +10,8 @@ class DefaultController extends Controller
 {
     public function indexAction()
     {
-        $veg = $this->getDoctrine()->getRepository('DataBundle:Item')->findBy(array(),array('id'=>'DESC'),10);
-        $city = $this->getDoctrine()->getRepository('DataBundle:City')->findBy(array(),array('id'=>'DESC'),5);
+        $veg = $this->getDoctrine()->getRepository('DataBundle:Item')->findAll();
+        $city = $this->getDoctrine()->getRepository('DataBundle:City')->findBy(array(),array('id'=>'DESC'),10);
         $news = $this->getDoctrine()->getRepository('DataBundle:News')->findBy(array(),array('id'=>'DESC'),20);
         return $this->render('HomeBundle:Default:index.html.twig',array(
             'veg' => $veg,
