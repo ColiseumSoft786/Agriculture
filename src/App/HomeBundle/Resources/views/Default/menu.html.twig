@@ -1,7 +1,7 @@
 <ul class="nav navbar-nav navbar-right">
     <li ><a  href="{{ path('home_homepage') }}">Home</a></li>
     <li ><a  href="{{ path('News_index') }}">Latest News</a></li>
-    <li ><a  href="{{ path('Panel_index') }}">Discussion Panel</a></li>
+    <li ><a  href="{{ path('Panel_index') }}">Discussions</a></li>
     <li class="dropdown"><a class="dropdown-toggle" href="#" data-toggle="dropdown">Publications</a>
         <ul class="dropdown-menu">
             {% for item in pubs %}
@@ -9,7 +9,7 @@
             {% endfor %}
         </ul>
     </li>
-    <li class="dropdown"><a class="dropdown-toggle" href="#" data-toggle="dropdown">Info Bank</a>
+    <li class="dropdown"><a class="dropdown-toggle" href="#" data-toggle="dropdown">Information Bank</a>
         <ul class="dropdown-menu">
             {% for item in info %}
                 <li><a href="{{ path('home_homepage_infos',{id:item.id,name:item.name}) }}">{{ item.name }}</a></li>
@@ -20,14 +20,14 @@
             <li ><a  href="{{ path('home_info_desk',{id:2,name:'view'}) }}">Exporters</a></li>
         </ul>
     </li>
-    <li class="dropdown"><a class="dropdown-toggle" href="#" data-toggle="dropdown">Impt Link</a>
+    <li class="dropdown"><a class="dropdown-toggle" href="#" data-toggle="dropdown">External</a>
         <ul class="dropdown-menu">
             {% for item in link %}
                 <li><a href="{{ item.path }}" target="_blank">{{ item.name }}</a></li>
             {% endfor %}
         </ul>
     </li>
-    <li class="dropdown"><a class="dropdown-toggle" href="#" data-toggle="dropdown">More Links</a>
+    <li class="dropdown"><a class="dropdown-toggle" href="#" data-toggle="dropdown">About</a>
         <ul class="dropdown-menu">
                 <li><a href="{{ path('Info_about') }}">About Us</a></li>
                 <li><a href="{{ path('Info_contact') }}">Contact Us</a></li>
