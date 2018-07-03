@@ -73,7 +73,7 @@ class NewsController extends Controller
                 )));
             }
             $pub = $this->getDoctrine()->getRepository('DataBundle:News')->find($id);
-            return $this->render('AdminBundle:Slider:edit.html.twig', array(
+            return $this->render('AdminBundle:News:edit.html.twig', array(
                 'news' => $pub
             ));
         }return $this->redirect($this->generateUrl('adminbundle_login'));
