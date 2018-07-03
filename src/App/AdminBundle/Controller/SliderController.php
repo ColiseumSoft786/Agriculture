@@ -90,7 +90,7 @@ class SliderController extends Controller
         if($this->loggedin){
             $em = $this->getDoctrine()->getManager();
             $pub = $em->getRepository('DataBundle:Slider')->find($id);
-            if($pub->getImage() != null){
+            if($pub->getPath() != null){
                 if(file_exists("./".$pub->getPath())){
                     unlink("./".$pub->getPath());
                 }

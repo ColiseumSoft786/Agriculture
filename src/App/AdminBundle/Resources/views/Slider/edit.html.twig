@@ -1,15 +1,15 @@
 {% extends "::admin.html.twig" %}
 
-{% block title %} | {{ news.name }}{% endblock %}
+{% block title %} | {{ slider.name }}{% endblock %}
 
 {% block body %}
     <section class="content-header">
         <h1>
-            Edit {{ news.name }}
+            Edit {{ slider.name }}
         </h1>
         <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-            <li class="active">{{ news.name }}</li>
+            <li class="active">{{ slider.name }}</li>
         </ol>
     </section>
 
@@ -25,7 +25,7 @@
                 <!-- TABLE: LATEST ORDERS -->
                 <div class="box box-info">
                     <div class="box-header with-border">
-                        <h3 class="box-title">Edit {{ news.name }}</h3>
+                        <h3 class="box-title">Edit {{ slider.name }}</h3>
 
                         <div class="box-tools pull-right">
                             <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
@@ -39,7 +39,7 @@
                             <form id="newscreateform" action="" method="post" enctype="multipart/form-data">
                                 <div class="col-sm-6">
                                     <label for="" class="label label-info">Name <span class="text-danger">*</span></label>
-                                    <input value="{{ news.name }}" type="text" name="name" id="name" class="form-control" placeholder="Enter Name">
+                                    <input value="{{ slider.name }}" type="text" name="name" id="name" class="form-control" placeholder="Enter Name">
                                 </div>
                                 <div class="col-sm-6">
                                     <label for="" class="label label-info">Image</label>
@@ -47,7 +47,6 @@
                                 </div>
                                 <div class="col-sm-12">
                                     <label for="" class="label label-info">More Information <span class="text-danger">*</span></label>
-                                    <textarea name="details" id="details" class="form-control" rows="10" placeholder="Enter More Information about News">{{ news.details }}</textarea>
                                     <input style="margin-top: 10px" type="submit" value="Update" class="btn btn-sm btn-info pull-right">
                                 </div>
                             </form>
