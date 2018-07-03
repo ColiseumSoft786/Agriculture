@@ -189,20 +189,26 @@ class DefaultController extends Controller
             'info' => $info
         ));
     }
-    public function info_deskAction($id,$name){
-        if($id == 0){$name1 = 'Farmers';}elseif ($id == 1){$name1 = 'Cooperate';}else{$name1 = 'Exporters';}
-        if($name == 'view'){
-            $data = $this->getDoctrine()->getRepository('DataBundle:InfoDesk')->findBy(array('nId'=>$id));
+    public function info_deskAction($id,$action){
+        if($action == 'list'){
+            if($id == 'Farmers'){
+                $data = $this->getDoctrine()->getRepository('DataBundle:InfoDesk')->findBy(array('nId'=>0));
+            }
+            elseif ($id == 'Cooperate'){
+                $data = $this->getDoctrine()->getRepository('DataBundle:InfoDesk')->findBy(array('nId'=>1));
+            }
+            elseif ($id == 'Exporters'){
+                $data = $this->getDoctrine()->getRepository('DataBundle:InfoDesk')->findBy(array('nId'=>2));
+            }
             return $this->render('HomeBundle:default:info_desk_view.html.twig',array(
                 'data' => $data,
-                'name' => $name1,
+                'name' => $id,
             ));
         }
-        elseif ($name == 'read'){
+        else{
             $data = $this->getDoctrine()->getRepository('DataBundle:InfoDesk')->findOneBy(array('id'=>$id));
             return $this->render('HomeBundle:default:info_desk_read.html.twig',array(
                 'data' => $data,
-                'name' => $name1
             ));
         }
     }

@@ -20,7 +20,7 @@ home_homepage_infos_bycity:
     path:     /Details/City/{id}
     defaults: { _controller: HomeBundle:Default:bycity }
 home_info_desk:
-        path:     /info_desk/{id}/{name}
+        path:     /important/{id}/{action}
         defaults: { _controller: HomeBundle:Default:info_desk }
 
 News_index:
