@@ -66,23 +66,24 @@
                             </form>
                             <script>
                                 $('#infocreateform').submit(function (e) {
+                                    textbox_data = CKEDITOR.instances.details.getData();
                                     if($('#mandi').val() == ""){
                                         alert('Name is empty');
                                         e.preventDefault();
-                                    }else if($('#details').val() == ""){
+                                    }else if(textbox_data === ''){
                                         alert('Details is empty');
                                         e.preventDefault();
                                     }else if($('#agent').val() == ""){
-                                        alert('Details is empty');
+                                        alert('Agent is empty');
                                         e.preventDefault();
                                     }else if($('#company').val() == ""){
-                                        alert('Details is empty');
+                                        alert('Company is empty');
                                         e.preventDefault();
                                     }else if($('#phone').val() == ""){
-                                        alert('Details is empty');
+                                        alert('Phone number is empty');
                                         e.preventDefault();
                                     }else if($('#traded').val() == ""){
-                                        alert('Details is empty');
+                                        alert('Traded is empty');
                                         e.preventDefault();
                                     }
                                 })

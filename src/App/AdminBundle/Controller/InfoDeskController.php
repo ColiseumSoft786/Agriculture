@@ -59,7 +59,7 @@ class InfoDeskController extends Controller
         }
         if ($action == 'view'){
             $fetch = $this->getDoctrine()->getRepository('DataBundle:InfoDesk')->findBy(array('nId'=>$id));
-            if($id == 0){$name = 'Farmers';}elseif ($id == 1){$name = 'Cooperate';}else{$name = 'Exporters';}
+            if($id == 0){$name = 'Farmers';}elseif ($id == 1){$name = 'Markets';}
             return $this->render('AdminBundle:info_desk:view.html.twig',array(
                 'fetch' => $fetch,
                 'name'  => $name,
@@ -74,19 +74,22 @@ class InfoDeskController extends Controller
                     unlink("./".$delete->getImg());
                 }
             }
+            $var = $delete->getNId();
             $em->remove($delete);
             $em->flush();
-            return $this->redirect($this->generateUrl('admin_info_desk', ['action' => 'view', 'id' => $id]));
+            return $this->redirect($this->generateUrl('admin_info_desk', ['action' => 'view', 'id' => $var]));
         }
         elseif ($action == 'new'){
-            if($id == 0){$name = 'Farmers';}elseif ($id == 1){$name = 'Cooperate';}else{$name = 'Exporters';}
+            if($id == 0){$name = 'Farmers';}else{$name = 'Markets';}
             return $this->render('AdminBundle:info_desk:new.html.twig',array(
                 'name'  => $name
             ));
         }
         elseif ($action == 'edit'){
-            if($id == 0){$name = 'Farmers';}elseif ($id == 1){$name = 'Cooperate';}else{$name = 'Exporters';}
+
             $edit = $this->getDoctrine()->getRepository('DataBundle:InfoDesk')->findOneBy(array('id'=>$id));
+            $check_id = $edit->getNId();
+            if($check_id == 0){$name = 'Farmers';}elseif ($check_id == 1){$name = 'Markets';}
             return $this->render('AdminBundle:info_desk:edit.html.twig',array(
                 'name'  => $name,
                 'edit'    => $edit

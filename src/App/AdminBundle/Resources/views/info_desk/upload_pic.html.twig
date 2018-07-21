@@ -35,6 +35,14 @@
                                 <input style="margin-top: 10px" type="submit" value="Update" class="btn btn-sm btn-info pull-right" >
                             </div>
                         </form>
+                        <script>
+                            $('#pubcreateform').submit(function (e) {
+                                if($('#doc').val() == ""){
+                                    alert('Name is empty');
+                                    e.preventDefault();
+                                }
+                            })
+                        </script>
                             <div class="col-sm-offset-6 col-sm-6">
                             </div>
                             <div class="col-md-12">

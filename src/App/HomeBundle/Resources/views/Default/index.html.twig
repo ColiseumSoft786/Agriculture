@@ -13,37 +13,48 @@
 {% block body %}
     <div class="col-md-12">
         <h3 class="module-title font-alt" style="margin: 0 !important;">Agriculture Markets</h3>
+        <div class="col-md-offset-2 col-md-8"  style="border-style: inset">
+            <table class="table table-responsive">
+                {% for item in info_desk|reverse %}
+                <tr>
+                    <td style="">{{ item.name }} ( {% if item.nid == 0 %}Farmers{% elseif item.nid == 1 %}Markets{% endif %} ) </td>
+                    <td><a href="{{ path('home_info_desk',{id:item.id,action:item.name|replace({' ':'_'})}) }}">Read more</a></td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+
 {#
         <a href="{{ plath('home_homepage_infos_chart') }}" class="pull-right">View Chart</a>
 #}
-        <div class="table100 ver5 m-b-110" style="overflow: visible;margin: auto">
-            <div class="table100-body js-pscroll" style="max-height: 300px !important;">
-                <table>
-                    <thead>
-                    <tr  class="row100 head">
-                        <th class="cell100 column1">Vegetables</th>
-                        {% set count = 2 %}
-                        {% for item in city %}
-                            <th class="cell100 column{{ count }} text-center"><a href="{{ path('home_homepage_infos_bycity',{id:item.id}) }}">{{ item.name }}</a></th>
-                            {% set count = count + 1 %}
-                        {% endfor %}
-                    </tr>
-                    </thead>
-                    <tbody>
-                    {% for item in veg %}
-                        <tr class="row100 body">
-                            <td class="cell100 column1"><a href="{{ path('home_homepage_infos_byveg',{id:item.id}) }}">{{ item.name }}</a></td>
-                            {% set count = 2 %}
-                            {% for inner in city %}
-                                <td class="cell100 column{{ count }}">{% render(controller('HomeBundle:Default:details',{veg:item.id,city:inner.id}))%}</td>
-                                {% set count = count + 1 %}
-                            {% endfor %}
-                        </tr>
-                    {% endfor %}
-                    </tbody>
-                </table>
-            </div>
-        </div>
+        {#<div class="table100 ver5 m-b-110" style="overflow: visible;margin: auto">#}
+            {#<div class="table100-body js-pscroll" style="max-height: 300px !important;">#}
+                {#<table>#}
+                    {#<thead>#}
+                    {#<tr  class="row100 head">#}
+                        {#<th class="cell100 column1">Vegetables</th>#}
+                        {#{% set count = 2 %}#}
+                        {#{% for item in city %}#}
+                            {#<th class="cell100 column{{ count }} text-center"><a href="{{ path('home_homepage_infos_bycity',{id:item.id}) }}">{{ item.name }}</a></th>#}
+                            {#{% set count = count + 1 %}#}
+                        {#{% endfor %}#}
+                    {#</tr>#}
+                    {#</thead>#}
+                    {#<tbody>#}
+                    {#{% for item in veg %}#}
+                        {#<tr class="row100 body">#}
+                            {#<td class="cell100 column1"><a href="{{ path('home_homepage_infos_byveg',{id:item.id}) }}">{{ item.name }}</a></td>#}
+                            {#{% set count = 2 %}#}
+                            {#{% for inner in city %}#}
+                                {#<td class="cell100 column{{ count }}">{% render(controller('HomeBundle:Default:details',{veg:item.id,city:inner.id}))%}</td>#}
+                                {#{% set count = count + 1 %}#}
+                            {#{% endfor %}#}
+                        {#</tr>#}
+                    {#{% endfor %}#}
+                    {#</tbody>#}
+                {#</table>#}
+            {#</div>#}
+        {#</div>#}
     </div>
 {% endblock %}
 {% block script %}

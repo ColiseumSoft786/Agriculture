@@ -13,10 +13,13 @@ class DefaultController extends Controller
         $veg = $this->getDoctrine()->getRepository('DataBundle:Item')->findAll();
         $city = $this->getDoctrine()->getRepository('DataBundle:City')->findBy(array(),array('id'=>'DESC'),10);
         $news = $this->getDoctrine()->getRepository('DataBundle:News')->findBy(array(),array('id'=>'DESC'),20);
+        $info_desk1 = $this->getDoctrine()->getRepository('DataBundle:InfoDesk')->findBy(array(),array('id'=>'DESC'),20);
+        $info_desk = array_reverse($info_desk1);
         return $this->render('HomeBundle:Default:index.html.twig',array(
             'veg' => $veg,
             'city' => $city,
-            'news' => $news
+            'news' => $news,
+            'info_desk' =>$info_desk
             ));
     }
     public function sliderAction(){
@@ -194,11 +197,8 @@ class DefaultController extends Controller
             if($id == 'Farmers'){
                 $data = $this->getDoctrine()->getRepository('DataBundle:InfoDesk')->findBy(array('nId'=>0));
             }
-            elseif ($id == 'Cooperate'){
+            elseif ($id == 'Markets'){
                 $data = $this->getDoctrine()->getRepository('DataBundle:InfoDesk')->findBy(array('nId'=>1));
-            }
-            elseif ($id == 'Exporters'){
-                $data = $this->getDoctrine()->getRepository('DataBundle:InfoDesk')->findBy(array('nId'=>2));
             }
             return $this->render('HomeBundle:default:info_desk_view.html.twig',array(
                 'data' => $data,

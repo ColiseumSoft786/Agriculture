@@ -53,8 +53,13 @@
                             </form>
                             <script>
                                 $('#newscreateform').submit(function (e) {
+                                    textbox_data = CKEDITOR.instances.details.getData();
                                     if($('#name').val() == ""){
                                         alert('Name is empty');
+                                        e.preventDefault();
+                                    }
+                                    else if(textbox_data === ''){
+                                        alert('Details is empty');
                                         e.preventDefault();
                                     }
                                 })
